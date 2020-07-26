@@ -1,7 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-
+import DarkMode from './DarkMode.js';
 export default function Header() {
+
   return (
     <header>
       <div uk-sticky='sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar'>
@@ -18,40 +19,40 @@ export default function Header() {
                 <li>
                   <Link to='/'>
                     <div className='uk-text-center'>
-                      <i className="fad fa-chart-line fa-lg"></i>
-                      <div className="uk-navbar-subtitle">Trending</div>
+                      <i className='fad fa-chart-line fa-lg'></i>
+                      <div className='uk-navbar-subtitle'>Trending</div>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='/'>
                     <div className='uk-text-center'>
-                      <i class="fad fa-eye fa-lg"></i>
-                      <div className="uk-navbar-subtitle">Show</div>
+                      <i class='fad fa-eye fa-lg'></i>
+                      <div className='uk-navbar-subtitle'>Show</div>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='/'>
                     <div className='uk-text-center'>
-                      <i class="fad fa-question-circle fa-lg"></i>
-                      <div className="uk-navbar-subtitle">Ask</div>
+                      <i class='fad fa-question-circle fa-lg'></i>
+                      <div className='uk-navbar-subtitle'>Ask</div>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='/'>
                     <div className='uk-text-center'>
-                      <i class="fad fa-poll fa-lg"></i>
-                      <div className="uk-navbar-subtitle">Polls</div>
+                      <i class='fad fa-poll fa-lg'></i>
+                      <div className='uk-navbar-subtitle'>Polls</div>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='/'>
                     <div className='uk-text-center'>
-                      <i class="fad fa-briefcase fa-lg"></i>
-                      <div className="uk-navbar-subtitle">Jobs</div>
+                      <i class='fad fa-briefcase fa-lg'></i>
+                      <div className='uk-navbar-subtitle'>Jobs</div>
                     </div>
                   </Link>
                 </li>
@@ -60,6 +61,11 @@ export default function Header() {
           </div>
           <div className='uk-navbar-right'>
             <ul className='uk-navbar-nav'>
+              <li>
+                <Link>
+                  <DarkMode/>
+                </Link>
+              </li>
               <li>
                 <Link to='/login'>
                   <div className='uk-icon-button uk-button-primary'>

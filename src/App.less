@@ -1,0 +1,58 @@
+@import './assets/uikit/less/theme/variables.less';
+
+/* Global */
+.uk-text-primary {
+  color: @global-link-color;
+}
+
+/* Header */
+.logo {
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  color: @global-inverse-color !important;
+  background: @global-primary-background;
+  line-height: 30px;
+  text-align: center;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+/* Footer */
+
+/* To Top */
+.to-top {
+  position: fixed;
+  bottom: 10px !important;
+  right: 10px !important;
+}
+
+.to-top>svg {
+  display: none !important;
+}
+
+/* Dark Mode */
+.dark-mode__toggle {
+  background: @global-background;
+  border-radius: 50px;
+  height: 20px;
+  position: relative;
+  width: 40px;
+}
+
+.toggle {
+  background: @global-secondary-background;
+  border-radius: 50px;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  transition: 0.2s;
+  width: 20px;
+  line-height: 20px;
+  text-align: center;
+  color: @global-inverse-color;
+}
+
+.toggled {
+  left: 18px;
+}
