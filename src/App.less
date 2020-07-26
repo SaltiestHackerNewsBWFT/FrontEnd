@@ -1,16 +1,20 @@
 @import './assets/uikit/less/theme/variables.less';
 
-/* Global */
+// Global 
+body {
+  min-height: 100vh;
+}
+
 .uk-text-primary {
   color: @global-link-color;
 }
 
-/* Header */
+// Header 
 .logo {
   min-width: 30px;
   min-height: 30px;
   max-height: 30px;
-  color: @global-inverse-color !important;
+  color: @global-inverse-color  !important;
   background: @global-primary-background;
   line-height: 30px;
   text-align: center;
@@ -18,9 +22,9 @@
   margin-right: 10px;
 }
 
-/* Footer */
+// Footer 
 
-/* To Top */
+// To Top 
 .to-top {
   position: fixed;
   bottom: 10px !important;
@@ -31,13 +35,14 @@
   display: none !important;
 }
 
-/* Dark Mode */
+// Dark Mode 
 .dark-mode__toggle {
   background: @global-background;
   border-radius: 50px;
   height: 20px;
   position: relative;
   width: 40px;
+  border: 1px solid #fff;
 }
 
 .toggle {
@@ -53,6 +58,21 @@
   color: @global-inverse-color;
 }
 
-.toggled {
-  left: 18px;
+// Dark Mode Theme
+.dark-mode {
+  background: #222;
+
+  header {
+    .uk-navbar {
+      background: @global-emphasis-color;
+    }
+  }
+
+  .toggled {
+    left: 20px;
+
+    #sunIcon {
+      display: none;
+    }
+  }
 }
