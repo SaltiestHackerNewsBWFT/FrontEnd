@@ -65,6 +65,20 @@ body {
   header {
     .uk-navbar {
       background: @global-emphasis-color;
+
+      .uk-navbar-nav {
+        a {
+          color: @global-inverse-color;
+
+          &:hover {
+            color: @global-link-color;
+          }
+        }
+
+        .uk-active {
+          color: @global-link-color;
+        }
+      }
     }
   }
 

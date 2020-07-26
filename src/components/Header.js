@@ -17,7 +17,7 @@ export default function Header() {
             <div className='uk-navbar-nav'>
               <ul className='uk-navbar-nav'>
                 <li>
-                  <Link to='/'>
+                  <Link to='/trending'>
                     <div className='uk-text-center'>
                       <i className='fad fa-chart-line fa-lg'></i>
                       <div className='uk-navbar-subtitle'>Trending</div>
@@ -25,7 +25,7 @@ export default function Header() {
                   </Link>
                 </li>
                 <li>
-                  <Link to='/'>
+                  <Link to='/show'>
                     <div className='uk-text-center'>
                       <i class='fad fa-eye fa-lg'></i>
                       <div className='uk-navbar-subtitle'>Show</div>
@@ -33,7 +33,7 @@ export default function Header() {
                   </Link>
                 </li>
                 <li>
-                  <Link to='/'>
+                  <Link to='/ask'>
                     <div className='uk-text-center'>
                       <i class='fad fa-question-circle fa-lg'></i>
                       <div className='uk-navbar-subtitle'>Ask</div>
@@ -41,7 +41,7 @@ export default function Header() {
                   </Link>
                 </li>
                 <li>
-                  <Link to='/'>
+                  <Link to='/polls'>
                     <div className='uk-text-center'>
                       <i class='fad fa-poll fa-lg'></i>
                       <div className='uk-navbar-subtitle'>Polls</div>
@@ -49,7 +49,7 @@ export default function Header() {
                   </Link>
                 </li>
                 <li>
-                  <Link to='/'>
+                  <Link to='/jobs'>
                     <div className='uk-text-center'>
                       <i class='fad fa-briefcase fa-lg'></i>
                       <div className='uk-navbar-subtitle'>Jobs</div>
