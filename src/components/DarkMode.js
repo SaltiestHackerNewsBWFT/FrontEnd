@@ -10,10 +10,10 @@ export default function DarkMode() {
   };
 
   return (
-    <div className='dark-mode__toggle' onClick={toggleMode} data-uk-toggle="target: #sunIcon">
+    <div className='dark-mode__toggle' onClick={toggleMode}>
       <div className={darkMode ? 'toggle toggled' : 'toggle'}>
         <i id='sunIcon' class='fas fa-sun'></i>
-        <i class='fas fa-moon'></i>
+        <i id='moonIcon' class='fas fa-moon'></i>
       </div>
     </div>
   );
