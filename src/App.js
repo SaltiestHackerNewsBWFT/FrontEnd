@@ -6,6 +6,13 @@ import PrivateRoute from './components/PrivateRoute.js';
 import Header from './components/Header.js';
 import ToTop from './components/ToTop.js';
 import Footer from './components/Footer.js';
+//Pages
+import PageHome from './components/PageHome.js';
+import PageTrending from './components/PageTrending.js';
+import PageShow from './components/PageShow.js';
+import PageAsk from './components/PageAsk.js';
+import PagePolls from './components/PagePolls.js';
+import PageJobs from './components/PageJobs.js';
 
 //Styles
 import './App.css';
@@ -19,7 +26,12 @@ function App() {
         <PrivateRoute path='/user' /> 
         {/* <Route path='/login' component={Login} /> */}
         {/* <Route component={Login}/> */}
-        <Route exact path='/' />  
+        <Route exact path='/' component={PageHome} /> 
+        <Route exact path='/trending' component={PageTrending} /> 
+        <Route exact path='/show' component={PageShow} /> 
+        <Route exact path='/ask' component={PageAsk} />
+        <Route exact path='/polls' component={PagePolls} />
+        <Route exact path='/jobs' component={PageJobs} />
       </Switch>
         
       <ToTop />
