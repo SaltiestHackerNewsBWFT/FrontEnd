@@ -61,14 +61,14 @@ export default function PageLogin() {
       <h2>Log in</h2>
       <form className='uk-form-stacked' onSubmit={onSubmit}>
         <div className='form-group'>
-          <label className='uk-form-label' for='inputEmail'>E-mail address</label>
+          <label className='uk-form-label' htmlFor='inputEmail'>E-mail address</label>
           <div className='uk-form-controls'>
             <input type='email' name='email' id='inputEmail' onChange={onChange} className='uk-input'/>
           </div>
           <div className='uk-form-label uk-text-danger'>{errors.email}</div>
         </div>
         <div className='form-group'>
-          <label className='uk-form-label' for='inputPassword'>Password</label>
+          <label className='uk-form-label' htmlFor='inputPassword'>Password</label>
           <div className='uk-form-controls'>
             <input type='password' name='password' id='inputPassword' onChange={onChange} className='uk-input'/>
           </div>
