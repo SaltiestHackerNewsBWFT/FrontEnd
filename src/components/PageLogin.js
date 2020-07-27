@@ -17,13 +17,14 @@ export default function PageLogin() {
 
   const [formState, setFormState] = useState(INITIAL_FORM_STATE);
   const [errors, setErrors] = useState(INITIAL_ERROR_STATE);
+  const [submitButtonEnabled, setSubmitButtonEnabled] = useState(false);
 
   useEffect(() => {
     if (DISABLE_FORM_VALIDATION) return;
 
     LOGIN_FORM_SCHEMA.isValid(formState)
     .then(valid => {
-      // un-disable submit button
+      setSubmitButtonEnabled(valid);
     })
   }, [formState])
 
@@ -73,7 +74,7 @@ export default function PageLogin() {
           <div className='uk-form-label uk-text-danger'>{errors.password}</div>
         </div>
         <div className='form-group'>
-          <input type='submit' value='Log in' className='uk-button uk-button-primary uk-width-1-1'/>
+          <input type='submit' value='Log in' disabled={!submitButtonEnabled} className='uk-button uk-button-primary uk-width-1-1'/>
         </div>
       </form>
     </div>
