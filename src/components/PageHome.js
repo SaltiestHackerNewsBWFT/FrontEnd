@@ -1,16 +1,16 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ReactHtmlParser from 'react-html-parser';
-import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 
 export default function PageHome() {
   const [hnAll, setHnAll] = useState([]);
-  let timeAgo;
 
   useEffect(() => {
-    axios.get('https://hackernewsbw31.herokuapp.com/api/comments')
+    axios.get('https://hackernewsbw31.herokuapp.com/api/comments/data')
       .then(response => {
         setHnAll(response.data);
         console.log('axios response.data: ', response.data)
@@ -19,7 +19,11 @@ export default function PageHome() {
         console.log('axios error: ', error);
       })
   }, [])
-
+  const extractDomain = (url) => {
+    const link = document.createElement("a");
+    link.href = url;
+    return link.hostname;
+  };
   return (
     <div className='uk-section uk-section-small'> 
       <div className='uk-container'>
@@ -29,26 +33,31 @@ export default function PageHome() {
               <div key={item.objectID}>
                 <div className='uk-card uk-card-default uk-card-body uk-card-small uk-margin'>
                   <article className='uk-comment'>
-                    <header className='uk-comment-header'>
+                    <header className='uk-comment-header uk-margin-remove'>
                       <div className='uk-grid-medium uk-flex-middle' data-uk-grid>
-                        {/* <div className='uk-width-auto'>
+                        {/* <a className='uk-width-auto uk-link-reset' href={`https://news.ycombinator.com/item?id=${item.objectID}`} target='_blank'>
                           <img className='uk-comment-avatar' src='images/avatar.jpg' width='80' height='80' alt=''/>
-                        </div> */}
+                        </a> */}
                         <div className='uk-width-expand'>
-                          <h4 className='uk-comment-title uk-margin-remove'><Link className='uk-link-reset' to='#'>{item.author}</Link></h4>
+                          <h4 className='uk-comment-title uk-margin-remove'>
+                            <a className='uk-width-auto uk-margin-right' href={`https://news.ycombinator.com/item?id=${item.objectID}`} target='_blank'>
+                              <i className="fab fa-hacker-news"></i>
+                            </a>
+                            <a className='uk-link-reset' href={item.story_url} target='_blank'>{item.story_title}</a>
+                          </h4>
                           <ul className='uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top'>
-                            <li><Link className='uk-text-lowercase' ><i className="fad fa-clock"></i> {timeAgo = formatDistanceToNow(item.created_at_i * 1000)} ago</Link></li>
-                            <li><Link to='#'>Reply</Link></li>
-                            <li><a href={`https://news.ycombinator.com/item?id=${item.story_id}`} target='_blank'> go to</a></li>
+                            <li><Link to='#' style={{paddingLeft: '2px'}}><i className='fad fa-heart uk-margin-small-right' title='upvote'></i>{item.points}</Link></li>
+                            <li><a className='author' href={`https://news.ycombinator.com/user?id=${item.author}`} target='_blank' title='author'><i className='fad fa-user uk-margin-small-right'></i>{item.author || 'deleted'}</a></li>
+                            <li><Link className='uk-text-lowercase' to='#' title='posted'><i className='fad fa-clock uk-margin-small-right'></i>{formatDistanceToNow(item.created_at_i * 1000)} ago</Link></li>
+                            <li><a href={item.story_url} target='_blank' className='uk-text-lowercase' title='link'><i className="fad fa-link uk-margin-small-right"></i>{extractDomain(item.story_url)}</a></li>
+                            <li><a href='/' className='uk-text-lowercase' title='discuss'><i className="fad fa-comments-alt uk-margin-small-right"></i>{item.num_comments}</a></li>
                           </ul>
                         </div>
                       </div>
                     </header>
-                    <div className='uk-comment-body'>
-                      {/* {item.comment_text.replace(/<\/?[^>]+>/ig, " ")} */}
-                      {/* {item.comment_text} */}
+                    {/* <div className='uk-comment-body'>
                       { ReactHtmlParser(item.comment_text) }
-                    </div>
+                    </div> */}
                   </article>
                 </div>
               </div>
