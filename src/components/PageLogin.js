@@ -70,6 +70,7 @@ export default function PageLogin() {
           <div className='uk-form-controls'>
             <input type='password' name='password' id='inputPassword' onChange={onChange} className='uk-input'/>
           </div>
+          <div className='uk-form-label uk-text-danger'>{errors.password}</div>
         </div>
         <div className='form-group'>
           <input type='submit' value='Log in' className='uk-button uk-button-primary uk-width-1-1'/>
