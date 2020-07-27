@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import * as yup from 'yup';
 
-import { LOGIN_FORM_SCHEMA } from '../form-schemas/login';
+import { LOGIN_FORM_SCHEMA } from '../form-schemas/login-and-signup';
 
 const INITIAL_FORM_STATE = {
   email: '',
