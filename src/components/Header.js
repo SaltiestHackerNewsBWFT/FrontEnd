@@ -27,7 +27,7 @@ export default function Header() {
                 <li>
                   <Link to='/show'>
                     <div className='uk-text-center'>
-                      <i class='fad fa-eye fa-lg'></i>
+                      <i className='fad fa-eye fa-lg'></i>
                       <div className='uk-navbar-subtitle'>Show</div>
                     </div>
                   </Link>
@@ -35,7 +35,7 @@ export default function Header() {
                 <li>
                   <Link to='/ask'>
                     <div className='uk-text-center'>
-                      <i class='fad fa-question-circle fa-lg'></i>
+                      <i className='fad fa-question-circle fa-lg'></i>
                       <div className='uk-navbar-subtitle'>Ask</div>
                     </div>
                   </Link>
@@ -43,7 +43,7 @@ export default function Header() {
                 <li>
                   <Link to='/polls'>
                     <div className='uk-text-center'>
-                      <i class='fad fa-poll fa-lg'></i>
+                      <i className='fad fa-poll fa-lg'></i>
                       <div className='uk-navbar-subtitle'>Polls</div>
                     </div>
                   </Link>
@@ -51,7 +51,7 @@ export default function Header() {
                 <li>
                   <Link to='/jobs'>
                     <div className='uk-text-center'>
-                      <i class='fad fa-briefcase fa-lg'></i>
+                      <i className='fad fa-briefcase fa-lg'></i>
                       <div className='uk-navbar-subtitle'>Jobs</div>
                     </div>
                   </Link>
@@ -62,7 +62,7 @@ export default function Header() {
           <div className='uk-navbar-right'>
             <ul className='uk-navbar-nav'>
               <li>
-                <Link>
+                <Link to=''>
                   <DarkMode/>
                 </Link>
               </li>

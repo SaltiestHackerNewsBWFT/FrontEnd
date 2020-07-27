@@ -26,6 +26,7 @@ function App() {
         <PrivateRoute path='/user' /> 
         {/* <Route path='/login' component={Login} /> */}
         {/* <Route component={Login}/> */}
+        
         <Route exact path='/' component={PageHome} /> 
         <Route exact path='/trending' component={PageTrending} /> 
         <Route exact path='/show' component={PageShow} /> 
@@ -35,7 +36,7 @@ function App() {
       </Switch>
         
       <ToTop />
-      <Footer />
+      {/* <Footer /> */}
     </Router>
   );
 }
