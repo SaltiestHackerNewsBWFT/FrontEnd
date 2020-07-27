@@ -59,7 +59,7 @@ export default function PageLogin() {
   return (
     <div className='uk-container uk-container-center'>
       <form className='uk-form-stacked' onSubmit={onSubmit}>
-      <div className='form-group'>
+        <div className='form-group'>
           <label className='uk-form-label' for='inputEmail'>E-mail address</label>
           <div className='uk-form-controls'>
             <input type='email' name='email' id='inputEmail' onChange={onChange} className='uk-input'/>
