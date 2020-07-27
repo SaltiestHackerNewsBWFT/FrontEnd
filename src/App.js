@@ -25,7 +25,6 @@ function App() {
 
       <Switch>
         <PrivateRoute path='/user' /> 
-        {/* <Route path='/login' component={Login} /> */}
         
         <Route exact path='/' component={PageHome} /> 
         <Route exact path='/login' component={PageLogin}/>
