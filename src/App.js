@@ -8,7 +8,8 @@ import ToTop from './components/ToTop.js';
 import Footer from './components/Footer.js';
 //Pages
 import PageHome from './components/PageHome.js';
-import PageLogin from './components/PageLogin.js'
+import PageLogin from './components/PageLogin.js';
+import PageSignup from './components/PageSignup.js';
 import PageTrending from './components/PageTrending.js';
 import PageShow from './components/PageShow.js';
 import PageAsk from './components/PageAsk.js';
@@ -28,6 +29,7 @@ function App() {
         
         <Route exact path='/' component={PageHome} /> 
         <Route exact path='/login' component={PageLogin}/>
+        <Route exact path='/signup' component={PageSignup}/>
         <Route exact path='/trending' component={PageTrending} /> 
         <Route exact path='/show' component={PageShow} /> 
         <Route exact path='/ask' component={PageAsk} />
