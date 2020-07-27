@@ -9,6 +9,10 @@ body {
   color: @global-link-color;
 }
 
+.uk-card-default {
+  background: @global-inverse-color;
+}
+
 // Header 
 .logo {
   min-width: 30px;
@@ -78,15 +82,18 @@ body {
         .uk-active {
           color: @global-link-color;
         }
+
+        .toggled {
+          left: 20px;
+
+          #sunIcon {
+            display: none;
+          }
+        }
       }
     }
   }
 
-  .toggled {
-    left: 20px;
+  //.uk-card
 
-    #sunIcon {
-      display: none;
-    }
-  }
 }
