@@ -25,11 +25,11 @@ export default function Pagination(props) {
     <div>
       {(prevPage != null)
         ? <button type='button' onClick={() => setPage(prevPage)}>Prev</button>
-        : <button type='button' class="disabled">Prev</button>
+        : <button type='button' className='disabled'>Prev</button>
       }
       {(nextPage != null)
-        ? <button type='button' class='uk-button uk-button-primary' onClick={() => setPage(nextPage)}>Next</button>
-        : <button type='button' class="disabled">Next</button>
+        ? <button type='button' className='uk-button uk-button-primary' onClick={() => setPage(nextPage)}>Next</button>
+        : <button type='button' className='disabled'>Next</button>
       }
     </div>
   )
