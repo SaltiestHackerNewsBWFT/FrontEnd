@@ -30,6 +30,7 @@ export default function PageSignup() {
   }, [formState])
 
   function onChange(e) {
+    e.persist();
     const name = e.target.name;
     const value = e.target.value;
     
@@ -37,6 +38,7 @@ export default function PageSignup() {
 
     if (DISABLE_FORM_VALIDATION) return;
 
+    // BUG: doesn't handle "does the password confirmation match the password" properly
     yup.reach(SIGNUP_FORM_SCHEMA, name)
     .validate(value)
     .then(valid => {

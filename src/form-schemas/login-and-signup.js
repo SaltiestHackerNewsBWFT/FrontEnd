@@ -18,7 +18,10 @@ const signupFormShape = {
   passwordAgain: yup
   .string()
   .required('You must type your password in again.')
-  .oneOf([yup.ref('password')], 'Your passwords must match.')
+  .when('password', {
+    is: password => (password && password.length > 0),
+    then: yup.string().oneOf([yup.ref('password')], 'Your passwords must match.')
+  })
 }
 
 export const SIGNUP_FORM_SCHEMA = yup.object().shape(signupFormShape);
