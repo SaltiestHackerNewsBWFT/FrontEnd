@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 import * as yup from 'yup';
 
-import { LOGIN_FORM_SCHEMA } from '../form-schemas/login-and-signup';
+import { SIGNUP_FORM_SCHEMA } from '../form-schemas/login-and-signup';
 
 const INITIAL_FORM_STATE = {
   email: '',
   password: '',
+  passwordAgain: '',
 }
 
 const INITIAL_ERROR_STATE = {...INITIAL_FORM_STATE};
@@ -22,7 +23,7 @@ export default function PageSignup() {
   useEffect(() => {
     if (DISABLE_FORM_VALIDATION) return;
 
-    LOGIN_FORM_SCHEMA.isValid(formState)
+    SIGNUP_FORM_SCHEMA.isValid(formState)
     .then(valid => {
       setSubmitButtonEnabled(valid);
     })
@@ -36,7 +37,7 @@ export default function PageSignup() {
 
     if (DISABLE_FORM_VALIDATION) return;
 
-    yup.reach(LOGIN_FORM_SCHEMA, name)
+    yup.reach(SIGNUP_FORM_SCHEMA, name)
     .validate(value)
     .then(valid => {
       setErrors({
