@@ -76,7 +76,14 @@ export default function PageSignup() {
           <div className='uk-form-label uk-text-danger'>{errors.password}</div>
         </div>
         <div className='form-group'>
-          <input type='submit' value='Log in' disabled={!submitButtonEnabled} className='uk-button uk-button-primary uk-width-1-1'/>
+          <label className='uk-form-label' htmlFor='inputPasswordAgain'>Password (again)</label>
+          <div className='uk-form-controls'>
+            <input type='password' name='passwordAgain' id='inputPasswordAgain' onChange={onChange} className='uk-input'/>
+          </div>
+          <div className='uk-form-label uk-text-danger'>{errors.passwordAgain}</div>
+        </div>
+        <div className='form-group'>
+          <input type='submit' value='Sign up' disabled={!submitButtonEnabled} className='uk-button uk-button-primary uk-width-1-1'/>
         </div>
       </form>
     </div>
