@@ -8,6 +8,7 @@ import ToTop from './components/ToTop.js';
 import Footer from './components/Footer.js';
 //Pages
 import PageHome from './components/PageHome.js';
+import PageLogin from './components/PageLogin.js'
 import PageTrending from './components/PageTrending.js';
 import PageShow from './components/PageShow.js';
 import PageAsk from './components/PageAsk.js';
@@ -25,9 +26,9 @@ function App() {
       <Switch>
         <PrivateRoute path='/user' /> 
         {/* <Route path='/login' component={Login} /> */}
-        {/* <Route component={Login}/> */}
         
         <Route exact path='/' component={PageHome} /> 
+        <Route exact path='/login' component={PageLogin}/>
         <Route exact path='/trending' component={PageTrending} /> 
         <Route exact path='/show' component={PageShow} /> 
         <Route exact path='/ask' component={PageAsk} />
