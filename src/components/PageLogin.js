@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import * as yup from 'yup';
 
-import LOGIN_FORM_SCHEMA from '../form-schemas/login';
+import { LOGIN_FORM_SCHEMA } from '../form-schemas/login';
 
 const INITIAL_FORM_STATE = {
   email: '',
@@ -20,7 +20,7 @@ export default function PageLogin() {
 
   useEffect(() => {
     if (DISABLE_FORM_VALIDATION) return;
-    
+
     LOGIN_FORM_SCHEMA.isValid(formState)
     .then(valid => {
       // un-disable submit button
