@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import ReactHtmlParser from 'react-html-parser';
 
 export default function PageHome() {
   const [hnAll, setHnAll] = useState([]);
@@ -15,6 +16,7 @@ export default function PageHome() {
         console.log('axios error: ', error);
       })
   }, [])
+
   return (
     <div className='uk-section uk-section-small'> 
       <div className='uk-container'>
@@ -39,7 +41,9 @@ export default function PageHome() {
                       </div>
                     </header>
                     <div className='uk-comment-body'>
-                      {item.comment_text}
+                      {/* {item.comment_text.replace(/<\/?[^>]+>/ig, " ")} */}
+                      {/* {item.comment_text} */}
+                      { ReactHtmlParser(item.comment_text) }
                     </div>
                   </article>
                 </div>
