@@ -58,6 +58,7 @@ export default function PageSignup() {
   
   return (
     <div className='uk-container uk-container-center'>
+      <h2>Sign up</h2>
       <form className='uk-form-stacked' onSubmit={onSubmit}>
         <div className='form-group'>
           <label className='uk-form-label' for='inputEmail'>E-mail address</label>

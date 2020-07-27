@@ -58,6 +58,7 @@ export default function PageLogin() {
   
   return (
     <div className='uk-container uk-container-center'>
+      <h2>Log in</h2>
       <form className='uk-form-stacked' onSubmit={onSubmit}>
         <div className='form-group'>
           <label className='uk-form-label' for='inputEmail'>E-mail address</label>
