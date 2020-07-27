@@ -1,15 +1,12 @@
-// import {
+import { combineReducers } from 'redux';
+//import reducers
+import pageHomeReducer from './pageHomeReducer';
 
-// } from './../actions';
 
 export const initialState = {
   
 };
 
-export const rootReducer = (state = initialState, action) => {
-  switch (action.type) {
-    
-    default:
-      return state;
-  }
-}
+export default combineReducers({
+  pageHomeReducer
+})
