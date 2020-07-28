@@ -19,12 +19,12 @@ import UserProfile from './components/user/Profile.js';
 
 //Styles
 import './App.css';
+import './App-sticky-footer.css';
 
 function App() {
   return (
     <Router>
       <Header />
-
       <Switch>
         <PrivateRoute path='/user' component={UserProfile}/> 
         
@@ -39,7 +39,7 @@ function App() {
       </Switch>
         
       <ToTop />
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 }
