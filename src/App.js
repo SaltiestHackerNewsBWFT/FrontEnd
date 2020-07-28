@@ -15,6 +15,7 @@ import PageShow from './components/PageShow.js';
 import PageAsk from './components/PageAsk.js';
 import PagePolls from './components/PagePolls.js';
 import PageJobs from './components/PageJobs.js';
+import UserProfile from './components/user/Profile.js';
 
 //Styles
 import './App.css';
@@ -24,21 +25,18 @@ function App() {
   return (
     <Router>
       <Header />
-
-      <main>
-        <Switch>
-          <PrivateRoute path='/user' /> 
-          
-          <Route exact path='/' component={PageHome} /> 
-          <Route exact path='/login' component={PageLogin}/>
-          <Route exact path='/signup' component={PageSignup}/>
-          <Route exact path='/trending' component={PageTrending} /> 
-          <Route exact path='/show' component={PageShow} /> 
-          <Route exact path='/ask' component={PageAsk} />
-          <Route exact path='/polls' component={PagePolls} />
-          <Route exact path='/jobs' component={PageJobs} />
-        </Switch>
-      </main>
+      <Switch>
+        <PrivateRoute path='/user' component={UserProfile}/> 
+        
+        <Route exact path='/' component={PageHome} /> 
+        <Route exact path='/login' component={PageLogin}/>
+        <Route exact path='/signup' component={PageSignup}/>
+        <Route exact path='/trending' component={PageTrending} /> 
+        <Route exact path='/show' component={PageShow} /> 
+        <Route exact path='/ask' component={PageAsk} />
+        <Route exact path='/polls' component={PagePolls} />
+        <Route exact path='/jobs' component={PageJobs} />
+      </Switch>
         
       <ToTop />
       <Footer />
