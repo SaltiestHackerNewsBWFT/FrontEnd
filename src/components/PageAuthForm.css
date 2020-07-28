@@ -1,0 +1,14 @@
+@media (min-width: 768px) {
+  .auth-form-page {
+    display: flex;
+    min-height: calc(100vh - 80px); /* BUG: assumes header navbar is 80px high */
+  }
+
+  .auth-form-page__image {
+    width: 50%;
+    background: green;
+    background: url(../assets/images/salt-in-white-surface-3693296.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}

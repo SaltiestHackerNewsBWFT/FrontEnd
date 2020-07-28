@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 import * as yup from 'yup';
 
+import './PageAuthForm.css';
+import '../assets/images/salt-in-white-surface-3693296.jpg'
+
 import { SIGNUP_FORM_SCHEMA } from '../form-schemas/login-and-signup';
 
 const INITIAL_FORM_STATE = {
@@ -60,35 +63,40 @@ export default function PageSignup() {
   }
   
   return (
-    <div className='uk-section uk-section-small'>
-      <div className='uk-container uk-flex uk-flex-center'>
-        <form className='uk-form-stacked uk-width-medium' onSubmit={onSubmit}>
-          <legend className='uk-align-center uk-text-primary'>Sign up</legend>
-          <div className='form-group'>
-            <label className='uk-form-label uk-text-primary' htmlFor='inputEmail'>E-mail address</label>
-            <div className='uk-form-controls'>
-              <input type='email' name='email' id='inputEmail' onChange={onChange} className='uk-input'/>
-            </div>
-            <div className='uk-form-label uk-text-danger'>{errors.email}</div>
+    <div className='auth-form-page'>
+      <div className='auth-form-page__image'/>
+      <div className='auth-form-page__form'>
+        <div className='uk-section uk-section-small'>
+          <div className='uk-container uk-flex uk-flex-center'>
+            <form className='uk-form-stacked uk-width-medium' onSubmit={onSubmit}>
+              <legend className='uk-align-center uk-text-primary'>Sign up</legend>
+              <div className='form-group'>
+                <label className='uk-form-label uk-text-primary' htmlFor='inputEmail'>E-mail address</label>
+                <div className='uk-form-controls'>
+                  <input type='email' name='email' id='inputEmail' onChange={onChange} className='uk-input'/>
+                </div>
+                <div className='uk-form-label uk-text-danger'>{errors.email}</div>
+              </div>
+              <div className='form-group'>
+                <label className='uk-form-label uk-text-primary' htmlFor='inputPassword'>Password</label>
+                <div className='uk-form-controls'>
+                  <input type='password' name='password' id='inputPassword' onChange={onChange} className='uk-input'/>
+                </div>
+                <div className='uk-form-label uk-text-danger'>{errors.password}</div>
+              </div>
+              <div className='form-group'>
+                <label className='uk-form-label uk-text-primary' htmlFor='inputPasswordAgain'>Password (again)</label>
+                <div className='uk-form-controls'>
+                  <input type='password' name='passwordAgain' id='inputPasswordAgain' onChange={onChange} className='uk-input'/>
+                </div>
+                <div className='uk-form-label uk-text-danger'>{errors.passwordAgain}</div>
+              </div>
+              <div className='form-group'>
+                <input type='submit' value='Sign up' disabled={!submitButtonEnabled} className='uk-button uk-button-primary uk-width-1-1'/>
+              </div>
+            </form>
           </div>
-          <div className='form-group'>
-            <label className='uk-form-label uk-text-primary' htmlFor='inputPassword'>Password</label>
-            <div className='uk-form-controls'>
-              <input type='password' name='password' id='inputPassword' onChange={onChange} className='uk-input'/>
-            </div>
-            <div className='uk-form-label uk-text-danger'>{errors.password}</div>
-          </div>
-          <div className='form-group'>
-            <label className='uk-form-label uk-text-primary' htmlFor='inputPasswordAgain'>Password (again)</label>
-            <div className='uk-form-controls'>
-              <input type='password' name='passwordAgain' id='inputPasswordAgain' onChange={onChange} className='uk-input'/>
-            </div>
-            <div className='uk-form-label uk-text-danger'>{errors.passwordAgain}</div>
-          </div>
-          <div className='form-group'>
-            <input type='submit' value='Sign up' disabled={!submitButtonEnabled} className='uk-button uk-button-primary uk-width-1-1'/>
-          </div>
-        </form>
+        </div>
       </div>
     </div>
   )
