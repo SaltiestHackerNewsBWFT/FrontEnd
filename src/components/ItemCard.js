@@ -50,13 +50,16 @@ export default function CardDataCard(props) {
                   </a>
                   <a className='uk-link-reset' href={cardData.url} target='_blank'>{cardData.title}</a>
                 </h4>
-                <ul className='uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top'>
+                <ul className='uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-bottom'>
                   <li><Link to='#' style={{paddingLeft: '2px'}}><i className='fad fa-heart uk-margin-small-right' title='upvote'></i>{cardData.points}</Link></li>
                   <li><a className='author' href={`https://news.ycombinator.com/user?id=${cardData.by}`} target='_blank' title='author'><i className='fad fa-user uk-margin-small-right'></i>{cardData.by || 'deleted'}</a></li>
                   <li><Link className='uk-text-lowercase' to='#' title='posted'><i className='fad fa-clock uk-margin-small-right'></i>{formatDistanceToNow(cardData.time * 1000)} ago</Link></li>
                   <li><a href={cardData.url} target='_blank' className='uk-text-lowercase' title='link'><i className="fad fa-link uk-margin-small-right"></i>{extractDomain(cardData.url)}</a></li>
                   <li><a href='/' className='uk-text-lowercase' title='discuss'><i className="fad fa-comments-alt uk-margin-small-right"></i>{cardData.kids && cardData.kids.length}</a></li>
                 </ul>
+                <div className='uk-position-right uk-flex uk-flex-middle uk-margin-right'>
+                  test
+                </div>
               </div>
             </div>
           </header>
