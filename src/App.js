@@ -18,27 +18,30 @@ import PageJobs from './components/PageJobs.js';
 
 //Styles
 import './App.css';
+import './App-sticky-footer.css';
 
 function App() {
   return (
     <Router>
       <Header />
 
-      <Switch>
-        <PrivateRoute path='/user' /> 
-        
-        <Route exact path='/' component={PageHome} /> 
-        <Route exact path='/login' component={PageLogin}/>
-        <Route exact path='/signup' component={PageSignup}/>
-        <Route exact path='/trending' component={PageTrending} /> 
-        <Route exact path='/show' component={PageShow} /> 
-        <Route exact path='/ask' component={PageAsk} />
-        <Route exact path='/polls' component={PagePolls} />
-        <Route exact path='/jobs' component={PageJobs} />
-      </Switch>
+      <main>
+        <Switch>
+          <PrivateRoute path='/user' /> 
+          
+          <Route exact path='/' component={PageHome} /> 
+          <Route exact path='/login' component={PageLogin}/>
+          <Route exact path='/signup' component={PageSignup}/>
+          <Route exact path='/trending' component={PageTrending} /> 
+          <Route exact path='/show' component={PageShow} /> 
+          <Route exact path='/ask' component={PageAsk} />
+          <Route exact path='/polls' component={PagePolls} />
+          <Route exact path='/jobs' component={PageJobs} />
+        </Switch>
+      </main>
         
       <ToTop />
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 }
