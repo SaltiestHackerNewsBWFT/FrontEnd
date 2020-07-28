@@ -15,6 +15,7 @@ import PageShow from './components/PageShow.js';
 import PageAsk from './components/PageAsk.js';
 import PagePolls from './components/PagePolls.js';
 import PageJobs from './components/PageJobs.js';
+import UserProfile from './components/user/Profile.js';
 
 //Styles
 import './App.css';
@@ -25,7 +26,7 @@ function App() {
       <Header />
 
       <Switch>
-        <PrivateRoute path='/user' /> 
+        <PrivateRoute path='/user' component={UserProfile}/> 
         
         <Route exact path='/' component={PageHome} /> 
         <Route exact path='/login' component={PageLogin}/>
