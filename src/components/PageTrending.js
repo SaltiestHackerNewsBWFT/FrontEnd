@@ -6,11 +6,14 @@ export default function PageTrending() {
   const [trendingAll, setTrendingAll] = useState([]);
   
   useEffect(() => {
-    axiosHackerNews('topstories.json')
+    axiosHackerNews('beststories.json')
       .then(response => {
         setTrendingAll(response.data);
         console.log(response);
-      });
+      })
+      .catch(error => {
+        console.log('axios error: ', error);
+      })
   }, [])
 
   return (

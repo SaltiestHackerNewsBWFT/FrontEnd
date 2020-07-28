@@ -10,7 +10,10 @@ export default function PageShow() {
       .then(response => {
         setShowAll(response.data);
         console.log(response);
-      });
+      })
+      .catch(error => {
+        console.log('axios error: ', error);
+      })
   }, [])
 
   return (

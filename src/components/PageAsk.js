@@ -10,7 +10,10 @@ export default function PageAsk() {
       .then(response => {
         setAskAll(response.data);
         console.log(response);
-      });
+      })
+      .catch(error => {
+        console.log('axios error: ', error);
+      })
   }, [])
 
   return (
