@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useHistory} from 'react-router-dom';
+import axios from 'axios';
 
 import * as yup from 'yup';
 
@@ -22,6 +24,7 @@ export default function PageSignup() {
   const [formState, setFormState] = useState(INITIAL_FORM_STATE);
   const [errors, setErrors] = useState(INITIAL_ERROR_STATE);
   const [submitButtonEnabled, setSubmitButtonEnabled] = useState(false);
+  const history = useHistory();
 
   useEffect(() => {
     if (DISABLE_FORM_VALIDATION) return;
@@ -60,6 +63,16 @@ export default function PageSignup() {
 
   function onSubmit(e) {
     e.preventDefault();
+    const userRegister = { email: formState.email, password: formState.password };
+    console.log(userRegister);
+    axios.post("https://hackernewsbw31.herokuapp.com/api/auth/register", userRegister)
+      .then(res => {
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("userID", res.data.data.id);
+        history.push("/");
+        // console.log(res.data)
+      })
+      .catch(err => console.log({ err }))
   }
   
   return (
@@ -93,6 +106,9 @@ export default function PageSignup() {
               </div>
               <div className='form-group'>
                 <input type='submit' value='Sign up' disabled={!submitButtonEnabled} className='uk-button uk-button-primary uk-width-1-1'/>
+              </div>
+              <div className='uk-margin uk-text-center'>
+                <Link to='/login'>Have Account?</Link>
               </div>
             </form>
           </div>

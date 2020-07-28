@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 import * as yup from 'yup';
 
@@ -21,6 +23,7 @@ export default function PageLogin() {
   const [formState, setFormState] = useState(INITIAL_FORM_STATE);
   const [errors, setErrors] = useState(INITIAL_ERROR_STATE);
   const [submitButtonEnabled, setSubmitButtonEnabled] = useState(false);
+  const history = useHistory();
 
   useEffect(() => {
     if (DISABLE_FORM_VALIDATION) return;
@@ -52,11 +55,29 @@ export default function PageLogin() {
         [name]: err.errors[0],
       })
     })
-
   }
 
   function onSubmit(e) {
     e.preventDefault();
+    const userLogin = { email: formState.email, password: formState.password };
+    axios.post("https://hackernewsbw31.herokuapp.com/api/auth/login", userLogin)
+      .then(res => {
+        localStorage.setItem("token", res.data.token);
+        //localStorage.setItem("userID", res.data.data.id);
+        history.push("/");
+        // console.log(res.data)
+      })
+      .catch(err => console.log({ err }))
+    
+
+    // axios.post("https://hackernewsbw31.herokuapp.com/api/auth/login", signInUser)
+    //   .then((res) => {
+    //     console.log(res);
+    //     localStorage.setItem("userID", res.data.id);
+    //     localStorage.setItem("token", res.data.token);
+    //     history.push('/')
+    //   })
+    //   .catch((err) => console.log(err));
   }
   
   return (
@@ -88,6 +109,9 @@ export default function PageLogin() {
       
                   <input type='submit' value='Log in' disabled={!submitButtonEnabled} className='uk-button uk-button-primary uk-width-1-1'/>
                 </div>
+              </div>
+              <div className='uk-margin uk-text-center'>
+                <Link to='/signup'>Need Account?</Link>
               </div>
             </form>
           </div>
