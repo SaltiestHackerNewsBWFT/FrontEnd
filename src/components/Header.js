@@ -56,6 +56,14 @@ export default function Header() {
                     </div>
                   </Link>
                 </li>
+                <li>
+                  <Link to='/saltiest'>
+                    <div className='uk-text-center'>
+                      <i className='fad fa-ball-pile fa-lg'></i>
+                      <div className='uk-navbar-subtitle'>Saltiest</div>
+                    </div>
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

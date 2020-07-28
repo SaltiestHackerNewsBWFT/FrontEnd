@@ -15,6 +15,7 @@ import PageShow from './components/PageShow.js';
 import PageAsk from './components/PageAsk.js';
 import PagePolls from './components/PagePolls.js';
 import PageJobs from './components/PageJobs.js';
+import PageSaltiest from './components/PageSaltiest.js';
 import UserProfile from './components/user/Profile.js';
 
 //Styles
@@ -36,6 +37,7 @@ function App() {
         <Route exact path='/ask' component={PageAsk} />
         <Route exact path='/polls' component={PagePolls} />
         <Route exact path='/jobs' component={PageJobs} />
+        <Route exact path='/saltiest' component={PageSaltiest} />
       </Switch>
         
       <ToTop />
