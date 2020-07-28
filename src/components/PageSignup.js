@@ -60,34 +60,36 @@ export default function PageSignup() {
   }
   
   return (
-    <div className='uk-container uk-container-center'>
-      <h2>Sign up</h2>
-      <form className='uk-form-stacked' onSubmit={onSubmit}>
-        <div className='form-group'>
-          <label className='uk-form-label' htmlFor='inputEmail'>E-mail address</label>
-          <div className='uk-form-controls'>
-            <input type='email' name='email' id='inputEmail' onChange={onChange} className='uk-input'/>
+    <div className='uk-section uk-section-small'>
+      <div className='uk-container uk-flex uk-flex-center'>
+        <form className='uk-form-stacked uk-width-medium' onSubmit={onSubmit}>
+          <legend className='uk-align-center uk-text-primary'>Sign up</legend>
+          <div className='form-group'>
+            <label className='uk-form-label uk-text-primary' htmlFor='inputEmail'>E-mail address</label>
+            <div className='uk-form-controls'>
+              <input type='email' name='email' id='inputEmail' onChange={onChange} className='uk-input'/>
+            </div>
+            <div className='uk-form-label uk-text-danger'>{errors.email}</div>
           </div>
-          <div className='uk-form-label uk-text-danger'>{errors.email}</div>
-        </div>
-        <div className='form-group'>
-          <label className='uk-form-label' htmlFor='inputPassword'>Password</label>
-          <div className='uk-form-controls'>
-            <input type='password' name='password' id='inputPassword' onChange={onChange} className='uk-input'/>
+          <div className='form-group'>
+            <label className='uk-form-label uk-text-primary' htmlFor='inputPassword'>Password</label>
+            <div className='uk-form-controls'>
+              <input type='password' name='password' id='inputPassword' onChange={onChange} className='uk-input'/>
+            </div>
+            <div className='uk-form-label uk-text-danger'>{errors.password}</div>
           </div>
-          <div className='uk-form-label uk-text-danger'>{errors.password}</div>
-        </div>
-        <div className='form-group'>
-          <label className='uk-form-label' htmlFor='inputPasswordAgain'>Password (again)</label>
-          <div className='uk-form-controls'>
-            <input type='password' name='passwordAgain' id='inputPasswordAgain' onChange={onChange} className='uk-input'/>
+          <div className='form-group'>
+            <label className='uk-form-label uk-text-primary' htmlFor='inputPasswordAgain'>Password (again)</label>
+            <div className='uk-form-controls'>
+              <input type='password' name='passwordAgain' id='inputPasswordAgain' onChange={onChange} className='uk-input'/>
+            </div>
+            <div className='uk-form-label uk-text-danger'>{errors.passwordAgain}</div>
           </div>
-          <div className='uk-form-label uk-text-danger'>{errors.passwordAgain}</div>
-        </div>
-        <div className='form-group'>
-          <input type='submit' value='Sign up' disabled={!submitButtonEnabled} className='uk-button uk-button-primary uk-width-1-1'/>
-        </div>
-      </form>
+          <div className='form-group'>
+            <input type='submit' value='Sign up' disabled={!submitButtonEnabled} className='uk-button uk-button-primary uk-width-1-1'/>
+          </div>
+        </form>
+      </div>
     </div>
   )
 }
