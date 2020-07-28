@@ -19,13 +19,15 @@ export default function PageSaltiest() {
   return (
     <div className='uk-section uk-section-small'> 
       <div className='uk-container'>
-        {
-          showAll.map(item => {
-            return (
-              <SaltyCard id={item} key={item}/>
-            )
-          })
-        }
+        <div className='uk-grid-small uk-child-width-1-2@s uk-child-width-1-4@m' data-uk-grid='masonry: true'>
+          {
+            showAll.map(item => {
+              return (
+                <SaltyCard id={item} key={item}/>
+              )
+            })
+          }
+        </div>
       </div>
     </div>
   )
