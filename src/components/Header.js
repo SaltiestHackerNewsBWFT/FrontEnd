@@ -24,14 +24,14 @@ export default function Header() {
                     </div>
                   </Link>
                 </li>
-                {/* <li>
+                <li>
                   <Link to='/new'>
                     <div className='uk-text-center'>
                       <i className='fad fa-sparkles fa-lg'></i>
                       <div className='uk-navbar-subtitle'>New</div>
                     </div>
                   </Link>
-                </li> */}
+                </li>
                 <li>
                   <Link to='/ask'>
                     <div className='uk-text-center'>

@@ -11,6 +11,7 @@ import PageHome from './components/PageHome.js';
 import PageLogin from './components/PageLogin.js';
 import PageSignup from './components/PageSignup.js';
 import PageTrending from './components/PageTrending.js';
+import PageNew from './components/PageNew.js';
 import PageShow from './components/PageShow.js';
 import PageAsk from './components/PageAsk.js';
 import PagePolls from './components/PagePolls.js';
@@ -35,6 +36,7 @@ function App() {
         <Route exact path='/login' component={PageLogin}/>
         <Route exact path='/signup' component={PageSignup}/>
         <Route exact path='/trending' component={PageTrending} /> 
+        <Route exact path='/new' component={PageNew} />
         <Route exact path='/show' component={PageShow} /> 
         <Route exact path='/ask' component={PageAsk} />
         <Route exact path='/polls' component={PagePolls} />
