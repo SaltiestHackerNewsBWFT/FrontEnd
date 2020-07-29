@@ -33,18 +33,18 @@ export default function Header() {
                   </Link>
                 </li> */}
                 <li>
-                  <Link to='/show'>
-                    <div className='uk-text-center'>
-                      <i className='fad fa-eye fa-lg'></i>
-                      <div className='uk-navbar-subtitle'>Show</div>
-                    </div>
-                  </Link>
-                </li>
-                <li>
                   <Link to='/ask'>
                     <div className='uk-text-center'>
                       <i className='fad fa-question-circle fa-lg'></i>
                       <div className='uk-navbar-subtitle'>Ask</div>
+                    </div>
+                  </Link>
+                </li>
+                <li>
+                  <Link to='/show'>
+                    <div className='uk-text-center'>
+                      <i className='fad fa-eye fa-lg'></i>
+                      <div className='uk-navbar-subtitle'>Show</div>
                     </div>
                   </Link>
                 </li>
