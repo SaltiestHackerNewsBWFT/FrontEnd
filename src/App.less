@@ -5,7 +5,7 @@ body {
   //min-height: 100vh;
 }
 
-.uk-section{
+.uk-section {
   min-height: calc(100vh - 48px);
 }
 
@@ -13,95 +13,102 @@ body {
   color: @global-link-color;
 }
 
-  .author {
-    text-transform: none !important;
-  }
+.author {
+  text-transform: none !important;
+}
 
-  .uk-card-default {
-    background: @global-inverse-color;
-  }
+.uk-card-default {
+  background: @global-inverse-color;
+}
 
-  // Header 
-  .logo {
-    min-width: 30px;
-    min-height: 30px;
-    max-height: 30px;
-    color: @global-inverse-color  !important;
-    background: @global-primary-background;
-    line-height: 30px;
-    text-align: center;
-    padding: 5px;
-    margin-right: 10px;
-  }
+// Header 
+.logo {
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  color: @global-inverse-color  !important;
+  background: @global-primary-background;
+  line-height: 30px;
+  text-align: center;
+  padding: 5px;
+  margin-right: 10px;
+}
 
-  // Footer 
+// Footer 
 
-  // To Top 
-  .to-top {
-    position: fixed;
-    bottom: 10px !important;
-    right: 10px !important;
-  }
+// To Top 
+.to-top {
+  position: fixed;
+  bottom: 10px !important;
+  right: 10px !important;
+}
 
-  .to-top>svg {
-    display: none !important;
-  }
+.to-top>svg {
+  display: none !important;
+}
 
-  // Dark Mode 
-  .dark-mode__toggle {
-    background: @global-background;
-    border-radius: 50px;
-    height: 20px;
-    position: relative;
-    width: 40px;
-    border: 1px solid #fff;
-  }
+// Dark Mode 
+.dark-mode__toggle {
+  background: @global-background;
+  border-radius: 50px;
+  height: 20px;
+  position: relative;
+  width: 40px;
+  border: 1px solid #fff;
+}
 
-  .toggle {
-    background: @global-secondary-background;
-    border-radius: 50px;
-    height: 20px;
-    left: 0;
-    position: absolute;
-    transition: 0.2s;
-    width: 20px;
-    line-height: 20px;
-    text-align: center;
-    color: @global-inverse-color;
-  }
+.toggle {
+  background: @global-secondary-background;
+  border-radius: 50px;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  transition: 0.2s;
+  width: 20px;
+  line-height: 20px;
+  text-align: center;
+  color: @global-inverse-color;
+}
 
-  // Dark Mode Theme
-  .dark-mode {
-    background: #222;
+// Dark Mode Theme
+.dark-mode {
+  background: #222;
 
-    header {
-      .uk-navbar {
-        background: @global-emphasis-color;
+  header {
+    .uk-navbar {
+      background: @global-emphasis-color;
 
-        .uk-navbar-nav {
-          a {
-            color: @global-inverse-color;
+      .uk-navbar-nav {
+        a {
+          color: @global-inverse-color;
 
-            &:hover {
-              color: @global-link-color;
-            }
-          }
-
-          .uk-active {
+          &:hover {
             color: @global-link-color;
           }
+        }
 
-          .toggled {
-            left: 20px;
+        .uk-active {
+          color: @global-link-color;
+        }
 
-            #sunIcon {
-              display: none;
-            }
+        .toggled {
+          left: 20px;
+
+          #sunIcon {
+            display: none;
           }
         }
       }
     }
+  }
 
-    //.uk-card
+  .uk-card-default {
+    background: @global-emphasis-color;
+    color: @global-inverse-color;
+
+    .uk-comment-title{
+      color: @global-inverse-color;
+    }
+  }
 
 }
