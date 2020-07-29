@@ -8,7 +8,9 @@ export const useDarkMode = (key, initialValue) => {
   useEffect(() => {
     darkMode
       ? document.body.classList.add('dark-mode')
-      : document.body.classList.remove('dark-mode')   
+      //&& document.body.classList.add('uk-light')
+      : document.body.classList.remove('dark-mode')
+       // && document.body.classList.remove('uk-light')
   }, [darkMode])
   
   //console.log(darkMode)
