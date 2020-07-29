@@ -3,11 +3,11 @@ import {Link} from 'react-router-dom';
 import DarkMode from './DarkMode.js';
 
 export default function Header() {
-  const history = useHistory();
+  // const history = useHistory();
   
   const logOut = () => {
     localStorage.removeItem('token');
-    history.push('/');
+    // history.push('/');
   }
 
   return (
