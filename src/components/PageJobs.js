@@ -19,6 +19,10 @@ export default function PageJobs() {
   return (
     <div className='uk-section uk-section-small'> 
       <div className='uk-container'>
+        <div className='uk-background-primary uk-light uk-text-center' data-uk-alert>
+          <button className="uk-alert-close" type="button" data-uk-close></button>
+          <p>These are jobs at YC startups. See more at <a href='https://www.workatastartup.com/' target='_blank'>Work at a Startup</a>.</p>
+        </div>
         {
           jobsAll.map(item => {
             return (
