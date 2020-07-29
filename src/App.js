@@ -17,6 +17,7 @@ import PagePolls from './components/PagePolls.js';
 import PageJobs from './components/PageJobs.js';
 import PageSaltiest from './components/PageSaltiest.js';
 import UserProfile from './components/user/Profile.js';
+import UserFavorites from './components/user/Favorites.js';
 
 //Styles
 import './App.css';
@@ -27,7 +28,8 @@ function App() {
     <Router>
       <Header />
       <Switch>
-        <PrivateRoute path='/user' component={UserProfile}/> 
+        <PrivateRoute path='/user/profile' component={UserProfile} /> 
+        <PrivateRoute path='/user/favorites' component={UserFavorites}/>
         
         <Route exact path='/' component={PageHome} /> 
         <Route exact path='/login' component={PageLogin}/>
