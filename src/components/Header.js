@@ -24,14 +24,14 @@ export default function Header() {
                     </div>
                   </Link>
                 </li>
-                <li>
-                  <Link to='/show'>
+                {/* <li>
+                  <Link to='/new'>
                     <div className='uk-text-center'>
-                      <i className='fad fa-eye fa-lg'></i>
-                      <div className='uk-navbar-subtitle'>Show</div>
+                      <i className='fad fa-sparkles fa-lg'></i>
+                      <div className='uk-navbar-subtitle'>New</div>
                     </div>
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link to='/ask'>
                     <div className='uk-text-center'>
@@ -41,18 +41,34 @@ export default function Header() {
                   </Link>
                 </li>
                 <li>
+                  <Link to='/show'>
+                    <div className='uk-text-center'>
+                      <i className='fad fa-eye fa-lg'></i>
+                      <div className='uk-navbar-subtitle'>Show</div>
+                    </div>
+                  </Link>
+                </li>
+                {/* <li>
                   <Link to='/polls'>
                     <div className='uk-text-center'>
                       <i className='fad fa-poll fa-lg'></i>
                       <div className='uk-navbar-subtitle'>Polls</div>
                     </div>
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link to='/jobs'>
                     <div className='uk-text-center'>
                       <i className='fad fa-briefcase fa-lg'></i>
                       <div className='uk-navbar-subtitle'>Jobs</div>
+                    </div>
+                  </Link>
+                </li>
+                <li>
+                  <Link to='/saltiest'>
+                    <div className='uk-text-center'>
+                      <i className='fad fa-ball-pile fa-lg'></i>
+                      <div className='uk-navbar-subtitle'>Saltiest</div>
                     </div>
                   </Link>
                 </li>
