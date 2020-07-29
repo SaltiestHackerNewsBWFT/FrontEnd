@@ -105,10 +105,20 @@ body {
   .uk-card-default {
     background: @global-emphasis-color;
     color: @global-inverse-color;
-
-    .uk-comment-title{
+    .uk-comment-title {
       color: @global-inverse-color;
     }
+  }
+
+  .uk-small-button .uk-default-button {
+    color: @global-inverse-color !important;
+  }
+
+  input {
+    color: @global-emphasis-color !important;
+  }
+  input::placeholder{
+    color: @global-inverse-color;
   }
 
 }
