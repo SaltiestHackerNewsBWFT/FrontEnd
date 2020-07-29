@@ -2,6 +2,14 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import DarkMode from './DarkMode.js';
 
+function MaybeLink({to, test, children}) {
+  const result = test;
+  if (result) {
+    return <Link to={to}>{children}</Link>
+  }
+  return <span>{children}</span>
+}
+
 export default function Header() {
   const location = useLocation();
   
@@ -89,11 +97,11 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <Link to={localStorage.getItem('token') ? '/user/profile' : '/login'}>
+                <MaybeLink to={'/login'} test={!localStorage.getItem('token')}>
                   <div className='uk-icon-button uk-button-primary'>
                     <i className='fas fa-user fa-lg'></i>
                   </div>
-                </Link>
+                </MaybeLink>
                 {localStorage.getItem('token') &&
                   <div  data-uk-dropdown='pos: top-right'>
                     <ul className='uk-nav uk-dropdown-nav uk-margin-right'>
