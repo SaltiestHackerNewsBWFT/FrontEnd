@@ -45,6 +45,7 @@ const FOOTER_LINKS = [
   },
 ];
 
+// intersperse(['a', 'b', 'c'], ':') → ['a', ':', 'b', ':', 'c']
 function intersperse(things, sep) {
   const ret = [];
   for (let i=0; i<things.length; ++i) {
@@ -54,13 +55,19 @@ function intersperse(things, sep) {
   return ret;
 }
 
+// Returns a link in the proper type (a or Link).
+function linkize({text, whither}) {
+  if (whither.startsWith("mailto:")) {
+    return <a href={whither}>{text}</a>
+  }
+  return <Link to={whither}>{text}</Link>
+}
+
 export default function Footer() {
   return (
-    <footer className=''>
-      <div className='footer-sitewide uk-navbar-container'>
-        {/* this is comically baroque but I need to use array methods to dynamically render HTML elements to get ‘MVP’ */}
-        {intersperse(FOOTER_LINKS.map(l => <Link to={l.whither} key={l.text}>{l.text}</Link>), ' | ')}
-      </div>
+    <footer className='footer-sitewide uk-navbar-container'>
+      {/* this is comically baroque but I need to use array methods to dynamically render HTML elements to get ‘MVP’ */}
+      {intersperse(FOOTER_LINKS.map(l => linkize(l)), ' | ')}
     </footer>
   )
 }
