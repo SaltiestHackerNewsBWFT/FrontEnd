@@ -13,7 +13,7 @@ const FOOTER_LINKS = [
   },
   {
     text: 'Support',
-    whither: 'mailto:blank@example.com',
+    whither: 'mailto:support@example.com',
   },
   {
     text: 'API',
@@ -41,7 +41,7 @@ const FOOTER_LINKS = [
   },
   {
     text: 'Contact',
-    whither: 'mailto:blank@example.com',
+    whither: 'mailto:contact@example.com',
   },
 ];
 
@@ -58,9 +58,9 @@ function intersperse(things, sep) {
 // Returns a link in the proper type (a or Link).
 function linkize({text, whither}) {
   if (whither.startsWith("mailto:")) {
-    return <a key={whither} href={whither}>{text}</a>
+    return <a key={whither+text} href={whither}>{text}</a>
   }
-  return <Link key={whither} to={whither}>{text}</Link>
+  return <Link key={whither+text} to={whither}>{text}</Link>
 }
 
 export default function Footer() {
