@@ -89,8 +89,7 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <Link
-                  to='/login'>
+                <Link to={localStorage.getItem('token') ? '/user/profile' : '/login'}>
                   <div className='uk-icon-button uk-button-primary'>
                     <i className='fas fa-user fa-lg'></i>
                   </div>
