@@ -58,9 +58,9 @@ function intersperse(things, sep) {
 // Returns a link in the proper type (a or Link).
 function linkize({text, whither}) {
   if (whither.startsWith("mailto:")) {
-    return <a href={whither}>{text}</a>
+    return <a key={whither} href={whither}>{text}</a>
   }
-  return <Link to={whither}>{text}</Link>
+  return <Link key={whither} to={whither}>{text}</Link>
 }
 
 export default function Footer() {
