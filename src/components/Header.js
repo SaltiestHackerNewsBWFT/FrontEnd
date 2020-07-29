@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useState, useHistory } from 'react';
 import {Link} from 'react-router-dom';
 import DarkMode from './DarkMode.js';
+
 export default function Header() {
+  const history = useHistory();
+  
+  const logOut = () => {
+    localStorage.removeItem('token');
+    history.push('/');
+  }
 
   return (
     <header>
@@ -83,11 +90,23 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <Link to='/login'>
+                <Link
+                  to='/login'>
                   <div className='uk-icon-button uk-button-primary'>
                     <i className='fas fa-user fa-lg'></i>
                   </div>
                 </Link>
+                {localStorage.getItem('token') &&
+                  <div  data-uk-dropdown='pos: top-right'>
+                    <ul className='uk-nav uk-dropdown-nav uk-margin-right'>
+                      <li><Link to='/user/profile'>Profile</Link></li>
+                      <li><Link to='/user/favorites'>Favorites</Link></li>
+                      <li><Link to='/user/bookmarks'>Bookmarks</Link></li>
+                      <li className='uk-nav-divider'></li>
+                      <li><a href='/' className='uk-link-reset' onClick={logOut}>Log Out</a></li>
+                    </ul>
+                  </div>
+                }
               </li>
             </ul>
           </div>

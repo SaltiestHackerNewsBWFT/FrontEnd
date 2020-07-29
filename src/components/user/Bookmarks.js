@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import ItemCard from '../ItemCard.js';
 
-export default function Favorites(){
+export default function Bookmarks(){
   
-  const [favorites, setFavorites] = useState([]);
+  const [bookmarks, setBookmarks] = useState([]);
   
   // useEffect(() => {
   //   axiosWithAuth()
@@ -13,11 +13,11 @@ export default function Favorites(){
   //     .catch()
     
   // })
-  console.log(favorites);
+  console.log(bookmarks);
   return (
     <div>
-      Favorites
-      {favorites.map(item =>
+      Bookmarks
+      {bookmarks.map(item =>
         <ItemCard key={item.id} item={item} />
       )} 
     </div>
