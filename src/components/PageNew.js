@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { axiosHackerNews } from '../utils/axiosHackerNews';
 import ItemCard from './ItemCard';
 
-export default function PageJobs() {
-  const [jobsAll, setJobsAll] = useState([]);
+export default function PageNew() {
+  const [newAll, setNewAll] = useState([]);
   
   useEffect(() => {
-    axiosHackerNews('jobstories.json')
+    axiosHackerNews('newstories.json')
       .then(response => {
-        setJobsAll(response.data);
+        setNewAll(response.data);
         console.log(response);
       })
       .catch(error => {
@@ -19,12 +19,8 @@ export default function PageJobs() {
   return (
     <div className='uk-section uk-section-small'> 
       <div className='uk-container'>
-        <div className='uk-background-primary uk-light uk-text-center' data-uk-alert>
-          <button className="uk-alert-close" type="button" data-uk-close></button>
-          <p>These are jobs at YC startups. See more at <a href='https://www.workatastartup.com/' target='_blank'>Work at a Startup</a>.</p>
-        </div>
         {
-          jobsAll.map(item => {
+          newAll.map(item => {
             return (
               <ItemCard id={item} key={item}/>
             )

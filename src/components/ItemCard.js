@@ -30,8 +30,8 @@ export default function CardDataCard(props) {
   const [cardData, setCardData] = useState({...initialCardData, id: props.id });
   useEffect(() => {
     axios.get(`https://hacker-news.firebaseio.com/v0/item/${props.id}.json`)
-      .then(response => { setCardData({...response.data})})
-      .catch(error => {console.log(error)})
+      .then(response => { setCardData({ ...response.data });console.log(response.data)})
+      .catch(error => { console.log(error) })
   },[])
 
   return (
@@ -49,14 +49,20 @@ export default function CardDataCard(props) {
                     <i className="fab fa-hacker-news"></i>
                   </a>
                   <a className='uk-link-reset' href={cardData.url} target='_blank'>{cardData.title}</a>
+                  {/* <span className='uk-float-right'>test</span> */}
                 </h4>
-                <ul className='uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top'>
-                  <li><Link to='#' style={{paddingLeft: '2px'}}><i className='fad fa-heart uk-margin-small-right' title='upvote'></i>{cardData.points}</Link></li>
+                <ul className='uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-bottom'>
+                  <li><Link to='#' style={{paddingLeft: '2px'}}><i className='fad fa-heart uk-margin-small-right' title='upvote'></i>{cardData.score}</Link></li>
                   <li><a className='author' href={`https://news.ycombinator.com/user?id=${cardData.by}`} target='_blank' title='author'><i className='fad fa-user uk-margin-small-right'></i>{cardData.by || 'deleted'}</a></li>
                   <li><Link className='uk-text-lowercase' to='#' title='posted'><i className='fad fa-clock uk-margin-small-right'></i>{formatDistanceToNow(cardData.time * 1000)} ago</Link></li>
                   <li><a href={cardData.url} target='_blank' className='uk-text-lowercase' title='link'><i className="fad fa-link uk-margin-small-right"></i>{extractDomain(cardData.url)}</a></li>
-                  <li><a href='/' className='uk-text-lowercase' title='discuss'><i className="fad fa-comments-alt uk-margin-small-right"></i>{cardData.kids && cardData.kids.length}</a></li>
+                  <li><a href='/' className='uk-text-lowercase' title='discuss'><i className="fad fa-comments-alt uk-margin-small-right"></i>{cardData.descendants}</a></li>
                 </ul>
+                {/* <div className='uk-position-bottom-right uk-margin-right uk-margin-bottom'>test</div> */}
+                <div className='uk-position-right uk-flex uk-flex-middle uk-margin-right'>
+                  <div>test</div><br/>
+                  <div>test</div>
+                </div>
               </div>
             </div>
           </header>
