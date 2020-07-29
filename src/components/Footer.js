@@ -59,7 +59,7 @@ export default function Footer() {
     <footer className=''>
       <div className='footer-sitewide uk-navbar-container'>
         {/* this is comically baroque but I need to use array methods to dynamically render HTML elements to get ‘MVP’ */}
-        {intersperse(FOOTER_LINKS.map(l => <Link to={l.whither}>{l.text}</Link>), ' | ')}
+        {intersperse(FOOTER_LINKS.map(l => <Link to={l.whither} key={l.text}>{l.text}</Link>), ' | ')}
       </div>
     </footer>
   )
