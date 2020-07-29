@@ -20,6 +20,8 @@ import PageSaltiest from './components/PageSaltiest.js';
 import UserProfile from './components/user/Profile.js';
 import UserFavorites from './components/user/Favorites.js';
 
+import PageMVPCompliance from './components/PageMVPCompliance.js';
+
 //Styles
 import './App.css';
 import './App-sticky-footer.css';
@@ -42,6 +44,8 @@ function App() {
         <Route exact path='/polls' component={PagePolls} />
         <Route exact path='/jobs' component={PageJobs} />
         <Route exact path='/saltiest' component={PageSaltiest} />
+
+        <Route exact path='/mvp' component={PageMVPCompliance} />
       </Switch>
         
       <ToTop />
