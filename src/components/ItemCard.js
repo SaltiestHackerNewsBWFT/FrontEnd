@@ -30,7 +30,10 @@ export default function CardDataCard(props) {
   const [cardData, setCardData] = useState({...initialCardData, id: props.id });
   useEffect(() => {
     axios.get(`https://hacker-news.firebaseio.com/v0/item/${props.id}.json`)
-      .then(response => { setCardData({ ...response.data });console.log(response.data)})
+      .then(response => {
+        setCardData({ ...response.data });
+        //console.log(response.data);
+      })
       .catch(error => { console.log(error) })
   },[])
 
