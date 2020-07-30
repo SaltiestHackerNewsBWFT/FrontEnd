@@ -61,7 +61,7 @@ export default function CardDataCard(props) {
                   <li><a className='author' href={`https://news.ycombinator.com/user?id=${cardData.by}`} target='_blank' title='author'><i className='fad fa-user uk-margin-small-right'></i>{cardData.by || 'deleted'}</a></li>
                   <li><Link className='uk-text-lowercase' to='#' title='posted'><i className='fad fa-clock uk-margin-small-right'></i>{formatDistanceToNow(cardData.time * 1000)} ago</Link></li>
                   <li><a href={cardData.url} target='_blank' className='uk-text-lowercase' title='link'><i className="fad fa-link uk-margin-small-right"></i>{extractDomain(cardData.url)}</a></li>
-                  <li><a href='/' className='uk-text-lowercase' title='discuss'><i className="fad fa-comments-alt uk-margin-small-right"></i>{cardData.descendants}</a></li>
+                  {cardData.type != 'job' && <li><Link to={`/comments/${props.id}`} className='uk-text-lowercase' title='discuss'><i className="fad fa-comments-alt uk-margin-small-right"></i>{cardData.descendants}</Link></li>}
                 </ul>
                 {/* <div className='uk-position-bottom-right uk-margin-right uk-margin-bottom'>test</div> */}
               </div>
