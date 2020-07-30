@@ -24,11 +24,7 @@ export default function Bookmarks(){
         <h2 className='uk-text-primary uk-text-center'>Bookmarks</h2>
         <div className='uk-container'>
           {bookmarks.map(item =>
-            //<ItemCard key={item.id} item={item} />
-            <div key={item.id}>
-              id:{item.id}
-              id:{item.id}
-            </div>
+            <ItemCard key={item.id} item={item} />
           )} 
         </div>
       </div>
