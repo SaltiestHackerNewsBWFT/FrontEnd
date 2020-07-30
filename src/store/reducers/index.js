@@ -1,12 +1,11 @@
 import { combineReducers } from 'redux';
 //import reducers
-import pageHomeReducer from './pageHomeReducer';
-
+import userReducer from './userReducer';
 
 export const initialState = {
   
 };
 
 export default combineReducers({
-  pageHomeReducer
+  userReducer
 })

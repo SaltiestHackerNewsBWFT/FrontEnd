@@ -27,7 +27,9 @@ const extractDomain = (url) => {
 };
 
 export default function CardDataCard(props) {
-  const [cardData, setCardData] = useState({...initialCardData, id: props.id });
+  const [cardData, setCardData] = useState({ ...initialCardData, id: props.id });
+  const [isFavorite, setIsFavorite] = useState(false);
+
   useEffect(() => {
     axios.get(`https://hacker-news.firebaseio.com/v0/item/${props.id}.json`)
       .then(response => {
@@ -35,8 +37,8 @@ export default function CardDataCard(props) {
         //console.log(response.data);
       })
       .catch(error => { console.log(error) })
-  },[])
-
+  }, [])
+  
   return (
     <div>
       <div className='uk-card uk-card-default uk-card-body uk-card-small uk-margin'>
@@ -62,10 +64,10 @@ export default function CardDataCard(props) {
                   <li><a href='/' className='uk-text-lowercase' title='discuss'><i className="fad fa-comments-alt uk-margin-small-right"></i>{cardData.descendants}</a></li>
                 </ul>
                 {/* <div className='uk-position-bottom-right uk-margin-right uk-margin-bottom'>test</div> */}
-                <div className='uk-position-right uk-flex uk-flex-middle uk-margin-right'>
-                  <div>test</div><br/>
-                  <div>test</div>
-                </div>
+              </div>
+              <div className='uk-width-auto uk-position-right uk-flex uk-flex-middle uk-margin-right'>
+                  <Link to='#' className='uk-margin-right uk-link-reset'><i className="fad fa-bookmark fa-lg"></i></Link>
+                  <Link to='#' className='uk-link-reset'><i className="fad fa-star fa-lg"></i></Link>
               </div>
             </div>
           </header>
