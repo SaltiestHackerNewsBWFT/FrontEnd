@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import DarkMode from './DarkMode.js';
 
+
 export default function Header() {
   const location = useLocation();
   
@@ -89,7 +90,7 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <Link to={localStorage.getItem('token') ? '/user/profile' : '/login'}>
+                <Link to={!!localStorage.getItem('token') ? '' : '/login'}>
                   <div className='uk-icon-button uk-button-primary'>
                     <i className='fas fa-user fa-lg'></i>
                   </div>
