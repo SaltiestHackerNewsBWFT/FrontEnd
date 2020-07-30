@@ -19,6 +19,7 @@ import PageJobs from './components/PageJobs.js';
 import PageSaltiest from './components/PageSaltiest.js';
 import UserProfile from './components/user/Profile.js';
 import UserFavorites from './components/user/Favorites.js';
+import UserBookmarks from './components/user/Bookmarks.js';
 
 import PageMVPCompliance from './components/PageMVPCompliance.js';
 
@@ -32,7 +33,8 @@ function App() {
       <Header />
       <Switch>
         <PrivateRoute path='/user/profile' component={UserProfile} /> 
-        <PrivateRoute path='/user/favorites' component={UserFavorites}/>
+        <PrivateRoute path='/user/favorites' component={UserFavorites} />
+        <PrivateRoute path='/user/bookmarks' component={UserBookmarks}/>
         
         <Route exact path='/' component={PageHome} /> 
         <Route exact path='/login' component={PageLogin}/>
