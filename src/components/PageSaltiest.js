@@ -23,7 +23,7 @@ export default function PageSaltiest() {
           {
             showAll.map(item => {
               return (
-                <SaltyCard id={item} key={item}/>
+                <SaltyCard key='kome' id='kome' salty='-0.89'/> // change it to id={item.id} and salty={item.rank}
               )
             })
           }
