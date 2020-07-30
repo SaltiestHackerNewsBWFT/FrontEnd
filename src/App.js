@@ -21,6 +21,7 @@ import PageSaltiest from './components/PageSaltiest.js';
 import UserProfile from './components/user/Profile.js';
 import UserFavorites from './components/user/Favorites.js';
 import UserBookmarks from './components/user/Bookmarks.js';
+import UpdateProfile from './components/user/UpdateProfile'
 
 import PageMVPCompliance from './components/PageMVPCompliance.js';
 
@@ -34,6 +35,7 @@ function App() {
       <Header />
       <Switch>
         <PrivateRoute path='/user/profile' component={UserProfile} /> 
+        <PrivateRoute path='/user/updateprofile' component={UpdateProfile} /> 
         <PrivateRoute path='/user/favorites' component={UserFavorites} />
         <PrivateRoute path='/user/bookmarks' component={UserBookmarks}/>
         

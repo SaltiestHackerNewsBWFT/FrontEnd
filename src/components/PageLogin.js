@@ -65,7 +65,7 @@ export default function PageLogin() {
         localStorage.setItem("token", res.data.token);
         //localStorage.setItem("userID", res.data.data.id);
         history.push("/");
-        // console.log(res.data)
+        console.log('what is ths',res.data)
       })
       .catch(err => console.log({ err }))
     

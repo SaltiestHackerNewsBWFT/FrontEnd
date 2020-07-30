@@ -12,7 +12,7 @@ export default function Favorites(){
       .get('https://hackernewsbw31.herokuapp.com/api/favorites')
       .then(response => {
         setFavorites(response.data);
-        // console.log('response for favorites: ', response.data)
+        console.log('response for favorites: ', response.data)
       })
       .catch(error => console.log(error))
   },[])
