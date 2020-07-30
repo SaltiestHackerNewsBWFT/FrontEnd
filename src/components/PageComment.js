@@ -8,8 +8,6 @@ export default function PageComment(props) {
   const [commentsAll, setCommentsAll] = useState([]);
   const { id } = useParams();
 
-  // children
-
   useEffect(() => {
     axiosAlgolia(`items/${id}`)
       .then(response => {
@@ -24,7 +22,7 @@ export default function PageComment(props) {
   
   return (
     <div className='uk-section uk-section-small'>
-      <div className='uk-container'>
+      <div className='uk-container uk-card uk-card-default uk-card-body comment-page'>
         <CommentCard comment={commentsAll} />
       </div>
     </div>
