@@ -16,26 +16,29 @@ export default function UserProfile() {
             </div>
           </div>
           <div className='uk-margin'>
-            <label forhtml='email' className='uk-text-primary'>User Name</label>
+            <label htmlFor='username' className='uk-text-primary'>Username (optional)</label>
             <input 
               className='uk-input'
               name='username'
+              id='username'
               placeholder='User Name'
             />
           </div>
           <div className='uk-margin'>
-            <label forhtml='email' className='uk-text-primary'>Email</label>
+            <label htmlFor='email' className='uk-text-primary'>Email</label>
             <input 
               className='uk-input'
               name='email'
+              id='email'
               placeholder='Email'
             />
           </div>
           <div className='uk-margin'>
-            <label forhtml='email' className='uk-text-primary'>Password</label>
+            <label htmlFor='password' className='uk-text-primary'>Password</label>
             <input 
               className='uk-input'
               name='password'
+              id='password'
               placeholder='Password'
             />
           </div>
