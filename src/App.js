@@ -14,6 +14,7 @@ import PageTrending from './components/PageTrending.js';
 import PageNew from './components/PageNew.js';
 import PageShow from './components/PageShow.js';
 import PageAsk from './components/PageAsk.js';
+import PageComment from './components/PageComment.js';
 import PagePolls from './components/PagePolls.js';
 import PageJobs from './components/PageJobs.js';
 import PageSaltiest from './components/PageSaltiest.js';
@@ -43,6 +44,7 @@ function App() {
         <Route exact path='/new' component={PageNew} />
         <Route exact path='/show' component={PageShow} /> 
         <Route exact path='/ask' component={PageAsk} />
+        <Route path='/comment' component={PageComment} />
         <Route exact path='/polls' component={PagePolls} />
         <Route exact path='/jobs' component={PageJobs} />
         <Route exact path='/saltiest' component={PageSaltiest} />
