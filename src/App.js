@@ -14,11 +14,13 @@ import PageTrending from './components/PageTrending.js';
 import PageNew from './components/PageNew.js';
 import PageShow from './components/PageShow.js';
 import PageAsk from './components/PageAsk.js';
+import PageComment from './components/PageComment.js';
 import PagePolls from './components/PagePolls.js';
 import PageJobs from './components/PageJobs.js';
 import PageSaltiest from './components/PageSaltiest.js';
 import UserProfile from './components/user/Profile.js';
 import UserFavorites from './components/user/Favorites.js';
+import UserBookmarks from './components/user/Bookmarks.js';
 
 import PageMVPCompliance from './components/PageMVPCompliance.js';
 
@@ -32,7 +34,8 @@ function App() {
       <Header />
       <Switch>
         <PrivateRoute path='/user/profile' component={UserProfile} /> 
-        <PrivateRoute path='/user/favorites' component={UserFavorites}/>
+        <PrivateRoute path='/user/favorites' component={UserFavorites} />
+        <PrivateRoute path='/user/bookmarks' component={UserBookmarks}/>
         
         <Route exact path='/' component={PageHome} /> 
         <Route exact path='/login' component={PageLogin}/>
@@ -41,6 +44,7 @@ function App() {
         <Route exact path='/new' component={PageNew} />
         <Route exact path='/show' component={PageShow} /> 
         <Route exact path='/ask' component={PageAsk} />
+        <Route path='/comment' component={PageComment} />
         <Route exact path='/polls' component={PagePolls} />
         <Route exact path='/jobs' component={PageJobs} />
         <Route exact path='/saltiest' component={PageSaltiest} />

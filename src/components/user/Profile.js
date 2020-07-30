@@ -9,14 +9,14 @@ export default function UserProfile() {
           <div className='uk-margin uk-flex uk-flex-center'>
             <img src='' width='132px' height='132px' alt='profile' style={{border: '2px solid #ff6600', minWidth: '132px', minHeight: '132px'}}/>
           </div>
-          <div class='uk-margin'>
+          <div className='uk-margin'>
             <div className='uk-flex uk-flex-center' data-uk-form-custom>
               <input type='file'/>
-              <button className='uk-button uk-button-default uk-button-small' type='button' tabindex='-1'>Upload Image</button>
+              <button className='uk-button uk-button-default uk-button-small' type='button' tabIndex='-1'>Upload Image</button>
             </div>
           </div>
           <div className='uk-margin'>
-            <label forHtml='email' className='uk-text-primary'>User Name</label>
+            <label forhtml='email' className='uk-text-primary'>User Name</label>
             <input 
               className='uk-input'
               name='username'
@@ -24,7 +24,7 @@ export default function UserProfile() {
             />
           </div>
           <div className='uk-margin'>
-            <label forHtml='email' className='uk-text-primary'>Email</label>
+            <label forhtml='email' className='uk-text-primary'>Email</label>
             <input 
               className='uk-input'
               name='email'
@@ -32,7 +32,7 @@ export default function UserProfile() {
             />
           </div>
           <div className='uk-margin'>
-            <label forHtml='email' className='uk-text-primary'>Password</label>
+            <label forhtml='email' className='uk-text-primary'>Password</label>
             <input 
               className='uk-input'
               name='password'
