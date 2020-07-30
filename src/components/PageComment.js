@@ -23,6 +23,9 @@ export default function PageComment(props) {
   console.log('commentsAll', commentsAll)
   
   return (
-    <CommentCard comment={commentsAll} />
+    <div className='uk-section uk-section-small'>
+<CommentCard comment={commentsAll} />
+    </div>
+    
   )
 }
