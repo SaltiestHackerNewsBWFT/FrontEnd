@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import ReactHtmlParser from 'react-html-parser';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 const initialCardData = {
@@ -28,8 +28,9 @@ const extractDomain = (url) => {
 
 export default function CardDataCard(props) {
   const [cardData, setCardData] = useState({ ...initialCardData, id: props.id });
-  const [isFavorite, setIsFavorite] = useState(false);
-
+  const [isFavorite, setIsFavorite] = useState()
+  
+  
   useEffect(() => {
     axios.get(`https://hacker-news.firebaseio.com/v0/item/${props.id}.json`)
       .then(response => {
@@ -38,6 +39,34 @@ export default function CardDataCard(props) {
       })
       .catch(error => { console.log(error) })
   }, [])
+  // console.log('COMMENT ID', props.id)
+  const addFavorite = e => {
+    e.preventDefault();
+    // axiosWithAuth()
+    //   .put('https://hackernewsbw31.herokuapp.com/api/favorites', `{"comment": ${props.id}}`)
+    //   .then(res => {
+        // this.setState({ getFriends: res.data });
+        // this.setState({ newFriend: { name: '', age: '', email: '' } });
+        // console.log('FRIENDS', res)
+        setIsFavorite(true)
+        document.getElementById(`deleteButton${props.id}`).classList.remove('uk-link-reset')
+      // })
+      // .catch(err => console.log({err}))
+  }
+
+  const deleteFavorite = e => {
+    e.preventDefault();
+    // axiosWithAuth()
+    //   .delete('https://hackernewsbw31.herokuapp.com/api/favorites', `{"comment": ${props.id}}`)
+    //   .then(res => {
+        // this.setState({ getFriends: res.data });
+        // this.setState({ newFriend: { name: '', age: '', email: '' } });
+        // console.log('FRIENDS', res)
+        setIsFavorite(false)
+        document.getElementById(`deleteButton${props.id}`).classList.add('uk-link-reset')
+      // })
+      // .catch(err => console.log({err}))
+  }
   
   return (
     <div>
@@ -66,14 +95,11 @@ export default function CardDataCard(props) {
                 {/* <div className='uk-position-bottom-right uk-margin-right uk-margin-bottom'>test</div> */}
               </div>
               <div className='uk-width-auto uk-position-right uk-flex uk-flex-middle uk-margin-right'>
-                  <Link to='#' className='uk-margin-right uk-link-reset'><i className="fad fa-bookmark fa-lg"></i></Link>
-                  <Link to='#' className='uk-link-reset'><i className="fad fa-star fa-lg"></i></Link>
+                  {/* <Link to='#' className='uk-margin-right uk-link-reset'><i className="fad fa-bookmark fa-lg"></i></Link> */}
+                  <a id={`deleteButton${props.id}`} type='button' onClick={isFavorite ? deleteFavorite : addFavorite} className='uk-link-reset'> <i className="fad fa-star fa-lg"></i></a>
               </div>
             </div>
           </header>
-          {/* <div className='uk-comment-body'>
-            { ReactHtmlParser(cardData.comment_text) }
-          </div> */}
         </article>
       </div>
     </div>     
