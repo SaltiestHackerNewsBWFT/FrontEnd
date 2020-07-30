@@ -32,6 +32,7 @@ export default function Favorites(){
   } else {
     return (
       <div className='uk-section uk-section-small'>
+        <h2 className='uk-text-primary uk-text-center'>Favorites</h2>
         <div className='uk-container uk-text-center'>
           <strong>Looks like you have no favorites yet...</strong>
           <Link to='/'>Let's Get Started!</Link>

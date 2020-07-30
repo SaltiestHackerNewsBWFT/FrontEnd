@@ -32,6 +32,7 @@ export default function Bookmarks(){
   } else {
     return (
       <div className='uk-section uk-section-small'>
+        <h2 className='uk-text-primary uk-text-center'>Bookmarks</h2>
         <div className='uk-container uk-text-center'>
           <strong>Looks like you have not bookmarked anything yet...</strong>
           <Link to='/'>Let's Get Started!</Link>
