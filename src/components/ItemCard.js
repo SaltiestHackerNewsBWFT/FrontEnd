@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import Favorites from './user/Favorites';
 
 const initialCardData = {
   deleted: false,
@@ -26,11 +27,12 @@ const extractDomain = (url) => {
   return link.hostname;
 };
 
-export default function CardDataCard(props) {
+export default function ItemCard(props) {
   const [cardData, setCardData] = useState({ ...initialCardData, id: props.id });
-  const [isFavorite, setIsFavorite] = useState()
-  
-  
+  const [isFavorite, setIsFavorite] = useState(false)
+  const userId = localStorage.getItem("userID");
+  const token = localStorage.getItem("token");
+
   useEffect(() => {
     axios.get(`https://hacker-news.firebaseio.com/v0/item/${props.id}.json`)
       .then(response => {
@@ -39,33 +41,32 @@ export default function CardDataCard(props) {
       })
       .catch(error => { console.log(error) })
   }, [])
-  // console.log('COMMENT ID', props.id)
+    
+  
   const addFavorite = e => {
     e.preventDefault();
-    // axiosWithAuth()
-    //   .put('https://hackernewsbw31.herokuapp.com/api/favorites', `{"comment": ${props.id}}`)
-    //   .then(res => {
-        // this.setState({ getFriends: res.data });
-        // this.setState({ newFriend: { name: '', age: '', email: '' } });
-        // console.log('FRIENDS', res)
+    const commentProfile = { comment: props.id , profile_id: userId, id: props.id};
+    axiosWithAuth()
+      .post('https://hackernewsbw31.herokuapp.com/api/favorites', commentProfile)
+      .then(res => {
         setIsFavorite(true)
         document.getElementById(`deleteButton${props.id}`).classList.remove('uk-link-reset')
-      // })
-      // .catch(err => console.log({err}))
+        console.log('post favorite',res)
+      })
+      .catch(err => console.log({err}))
   }
 
-  const deleteFavorite = e => {
-    e.preventDefault();
-    // axiosWithAuth()
-    //   .delete('https://hackernewsbw31.herokuapp.com/api/favorites', `{"comment": ${props.id}}`)
-    //   .then(res => {
-        // this.setState({ getFriends: res.data });
-        // this.setState({ newFriend: { name: '', age: '', email: '' } });
-        // console.log('FRIENDS', res)
+  const deleteFavorite = (comment) => {
+    // e.preventDefault();
+    const commentProfile = { comment: props.id , profile_id: userId };
+    axiosWithAuth()
+      .delete(`https://hackernewsbw31.herokuapp.com/api/favorites/${props.id}`)
+      .then(res => {
         setIsFavorite(false)
         document.getElementById(`deleteButton${props.id}`).classList.add('uk-link-reset')
-      // })
-      // .catch(err => console.log({err}))
+        console.log('delete favorite', res)
+      })
+      .catch(err => console.log({err}))
   }
   
   return (
@@ -88,7 +89,7 @@ export default function CardDataCard(props) {
                 <ul className='uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-bottom'>
                   <li><Link to='#' style={{paddingLeft: '2px'}}><i className='fad fa-heart uk-margin-small-right' title='upvote'></i>{cardData.score}</Link></li>
                   <li><a className='author' href={`https://news.ycombinator.com/user?id=${cardData.by}`} target='_blank' title='author'><i className='fad fa-user uk-margin-small-right'></i>{cardData.by || 'deleted'}</a></li>
-                  <li><Link className='uk-text-lowercase' to='#' title='posted'><i className='fad fa-clock uk-margin-small-right'></i>{formatDistanceToNow(cardData.time * 1000)} ago</Link></li>
+                  {/* <li><Link className='uk-text-lowercase' to='#' title='posted'><i className='fad fa-clock uk-margin-small-right'></i>{formatDistanceToNow(cardData.time * 1000)} ago</Link></li> */}
                   <li><a href={cardData.url} target='_blank' className='uk-text-lowercase' title='link'><i className="fad fa-link uk-margin-small-right"></i>{extractDomain(cardData.url)}</a></li>
                   {cardData.type != 'job' && <li><Link to={`/comments/${props.id}`} className='uk-text-lowercase' title='discuss'><i className="fad fa-comments-alt uk-margin-small-right"></i>{cardData.descendants}</Link></li>}
                 </ul>
