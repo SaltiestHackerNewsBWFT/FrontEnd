@@ -24,8 +24,8 @@ export default function Favorites(){
         <h2 className='uk-text-primary uk-text-center'>Favorites</h2>
         <div className='uk-container'>
           {favorites.map(item =>
-            <ItemCard key={item.id} item={item.comment} />
-            // <div>item id : {item.comment}</div>
+            // <ItemCard key={item.id} item={item.comment} />
+            <div key={item.comment}>item id : {item.comment}</div>
           )} 
         </div>
       </div>
