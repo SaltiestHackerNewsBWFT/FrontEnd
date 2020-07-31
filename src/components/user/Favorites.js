@@ -12,19 +12,20 @@ export default function Favorites(){
       .get('https://hackernewsbw31.herokuapp.com/api/favorites')
       .then(response => {
         setFavorites(response.data);
-        // console.log('response for favorites: ', response.data)
+        //console.log('response for favorites: ', response.data)
       })
       .catch(error => console.log(error))
   },[])
   //console.log(favorites)
-
+  
   if (favorites.length > 0) {
     return (
       <div className='uk-section uk-section-small'>
         <h2 className='uk-text-primary uk-text-center'>Favorites</h2>
         <div className='uk-container'>
           {favorites.map(item =>
-            <ItemCard key={item.id} item={item} />
+            <ItemCard key={item.id} item={item.comment} />
+            // <div>item id : {item.comment}</div>
           )} 
         </div>
       </div>

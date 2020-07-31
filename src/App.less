@@ -21,18 +21,25 @@ body {
   background: @global-inverse-color;
 }
 
+
 // Header 
-.logo {
-  min-width: 30px;
-  min-height: 30px;
-  max-height: 30px;
-  color: @global-inverse-color  !important;
-  background: @global-primary-background;
-  line-height: 30px;
-  text-align: center;
-  padding: 5px;
-  margin-right: 10px;
+header {
+  nav{
+    border-bottom: 2px solid @global-primary-background;
+  }
+  .logo {
+    min-width: 30px;
+    min-height: 30px;
+    max-height: 30px;
+    color: @global-inverse-color  !important;
+    background: @global-primary-background;
+    line-height: 30px;
+    text-align: center;
+    padding: 5px;
+    margin-right: 10px;
+  }
 }
+
 
 // Footer 
 
@@ -105,23 +112,46 @@ body {
   .uk-card-default {
     background: @global-emphasis-color;
     color: @global-inverse-color;
+
     .uk-comment-title {
       color: @global-inverse-color;
     }
   }
 
   .uk-small-button .uk-default-button {
-    color: @global-inverse-color !important;
+    color: @global-inverse-color  !important;
   }
 
   input {
-    color: @global-emphasis-color !important;
+    color: @global-emphasis-color  !important;
   }
-  input::placeholder{
-    color: @global-inverse-color;
-  }
-  .uk-card-title{
+
+  input::placeholder {
     color: @global-inverse-color;
   }
 
+  .uk-card-title {
+    color: @global-inverse-color;
+  }
+}
+
+.uk-input {
+  background: @global-inverse-color;
+}
+
+.uk-button:disabled {
+  background: @global-secondary-background  !important;
+  border: none;
+  color: @global-inverse-color  !important;
+}
+
+.comment-page {
+  .uk-comment-list .uk-comment-list {
+    padding-left: 30px;
+  }
+
+  li {
+    //border-left: 1px solid gray;
+    margin-top: 30px !important;
+  }
 }

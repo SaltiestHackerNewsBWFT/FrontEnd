@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <header>
-      <div uk-sticky='sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar'>
+      <div data-uk-sticky='sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar'>
         <nav className='uk-navbar-container' data-uk-navbar style={{position: 'relative', zIndex: '980'}} >
           <div className='uk-navbar-left'>
             <Link to='/' className='uk-navbar-item uk-logo uk-text-primary'>
