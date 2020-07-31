@@ -50,8 +50,8 @@ export default function PageSaltiest() {
 
   return (
     <div className='uk-section uk-section-small'> 
-      <div className='uk-container uk-container-small'>
-       
+      <div className='uk-container uk-container-xsmall'>
+       <h2 className='uk-text-primary uk-text-center'>Saltiest Hackers</h2>
           
         {
           saltiestArray.map(item => {

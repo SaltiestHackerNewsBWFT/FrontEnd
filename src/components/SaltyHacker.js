@@ -35,29 +35,32 @@ export default function SaltyCard(props) {
   }, [props.id])
 
   return (
-    <div className='uk-margin uk-flex uk-flex-center'>
-      <div className='uk-card uk-card-default uk-width-xlarge'>
-        <div className='uk-card-body uk-card-small uk-flex uk-flex-center'>
-          <div className='uk-inline uk-heading-medium uk-text-primary'>{props.rank}</div>
-          <h3 className='uk-card-title uk-h2 uk-text-primary uk-margin-left'>
-             <a href={`https://news.ycombinator.com/user?id=${props.id}`} target='_blank' >{cardData.id}</a>
-          </h3>
-          <div className='uk-flex'>
-            <div className='uk-padding-small uk-flex uk-flex-column uk-flex-middle' title='karma'>
-              <i className="fad fa-meteor fa-lg"></i>
-              <div className='uk-margin-small-top'>Karma</div>
-              {cardData.karma}
+    <div className='uk-margin'>
+      <div className=''>
+        <div className="uk-child-width-1-3 uk-card uk-card-default uk-padding-remove" data-uk-grid uk-height-match="target: > div > .uk-card">
+          <div className='uk-padding-remove'>
+            <div className="uk-card uk-tile-primary uk-card-body">
+              <div className='uk-heading-medium uk-margin-remove uk-height-expand uk-text-middle'>{props.rank}</div>
+              <a className='uk-text-large' href={`https://news.ycombinator.com/user?id=${props.id}`} target='_blank' >{cardData.id}</a>
             </div>
-            <div className='uk-padding-small uk-flex uk-flex-column uk-flex-middle' title='comments'>
-              <i className="fad fa-comments-alt fa-lg"></i>
-              <div className='uk-margin-small-top'>Comments</div>
-              {cardData.submitted.length}
+          </div>
+          <div>
+            <div className="uk-card uk-card-body">
+              <div className='uk-flex uk-flex-column uk-flex-middle' title='karma'>
+                <i className="fad fa-meteor fa-3x"></i>
+                <div className='uk-margin-top'>Karma</div>
+                 <strong class='uk-text-large'>{cardData.karma}</strong>
+              </div>
             </div>
-            {/* <div className='uk-padding-small uk-flex uk-flex-column uk-flex-middle' title='comments'>
-              <i className="fad fa-percent fa-lg"></i>
-              <div className='uk-margin-small-top'>Salt</div>
-              {salt}
-            </div> */}
+          </div>
+          <div>
+            <div className="uk-card uk-card-body">
+              <div className='uk-flex uk-flex-column uk-flex-middle' title='comments'>
+                <i className="fad fa-comments-alt fa-3x"></i>
+                <div className='uk-margin-top'>Comments</div>
+                <strong class='uk-text-large'>{cardData.submitted.length}</strong>
+              </div>
+            </div>
           </div>
         </div>
       </div>
