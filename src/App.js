@@ -19,6 +19,7 @@ import PageComment from './components/PageComment.js';
 import PageJobs from './components/PageJobs.js';
 import PageSaltiest from './components/PageSaltiest.js';
 import UserProfile from './components/user/Profile.js';
+// import UpdateProfile from './components/user/UpdateProfile.js';
 import UserFavorites from './components/user/Favorites.js';
 import UserBookmarks from './components/user/Bookmarks.js';
 
@@ -33,7 +34,7 @@ function App() {
     <Router>
       <Header />
       <Switch>
-        <PrivateRoute path='/user/profile' component={UserProfile} /> 
+        <PrivateRoute path='/user/profile' component={UserProfile} />
         <PrivateRoute path='/user/favorites' component={UserFavorites} />
         <PrivateRoute path='/user/bookmarks' component={UserBookmarks}/>
         
@@ -45,7 +46,6 @@ function App() {
         <Route exact path='/show' component={PageShow} /> 
         <Route exact path='/ask' component={PageAsk} />
         <Route path='/comments/:id' component={PageComment} />
-        {/* <Route exact path='/polls' component={PagePolls} /> */}
         <Route exact path='/jobs' component={PageJobs} />
         <Route exact path='/saltiest' component={PageSaltiest} />
 
