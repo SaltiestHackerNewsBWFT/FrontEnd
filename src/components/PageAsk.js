@@ -9,7 +9,7 @@ export default function PageAsk() {
     axiosHackerNews('askstories.json')
       .then(response => {
         setAskAll(response.data);
-        console.log(response);
+        //console.log(response);
       })
       .catch(error => {
         console.log('axios error: ', error);

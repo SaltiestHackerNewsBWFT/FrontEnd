@@ -29,10 +29,10 @@ export default function SaltyCard(props) {
     axios.get(`https://hacker-news.firebaseio.com/v0/user/${props.id}.json`)
       .then(response => {
         setCardData({ ...response.data });
-        console.log('user card',response)
+        //console.log('user card',response)
       })
       .catch(error => {console.log(error)})
-  }, [])
+  }, [props.id])
 
   return (
     <div>

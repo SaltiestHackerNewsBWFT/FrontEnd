@@ -9,7 +9,7 @@ export default function PageTrending() {
     axiosHackerNews('beststories.json')
       .then(response => {
         setTrendingAll(response.data);
-        console.log(response);
+        //console.log(response);
       })
       .catch(error => {
         console.log('axios error: ', error);

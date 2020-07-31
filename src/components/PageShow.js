@@ -9,7 +9,7 @@ export default function PageShow() {
     axiosHackerNews('showstories.json')
       .then(response => {
         setShowAll(response.data);
-        console.log(response);
+        //console.log(response);
       })
       .catch(error => {
         console.log('axios error: ', error);

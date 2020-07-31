@@ -47,7 +47,7 @@ export default function PageSaltiest() {
   //     })
   // }, [])
   let ranking = 0;
- console.log('salty',saltiestAll)
+
   return (
     <div className='uk-section uk-section-small'> 
       <div className='uk-container uk-container-small'>
