@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import { Link } from 'react-router-dom';
-import ItemCard from '../ItemCard.js';
+//import ItemCard from '../ItemCard.js';
 
 export default function Favorites(){
   
   const [favorites, setFavorites] = useState([]);
+  const [isFavorite, setIsFavorite] = useState(true)
   
   useEffect(() => {
     axiosWithAuth()
@@ -16,7 +17,19 @@ export default function Favorites(){
       })
       .catch(error => console.log(error))
   },[])
-  //console.log(favorites)
+  console.log(favorites)
+
+  const deleteFavorite = (props) => {
+    //e.preventDefault();
+    axiosWithAuth()
+      .delete(`https://hackernewsbw31.herokuapp.com/api/favorites/${props}`)
+      .then(res => {
+        setIsFavorite(false)
+        // document.getElementById(`deleteButton${props}`).classList.add('uk-link-reset')
+        // console.log('delete favorite', res)
+      })
+      .catch(err => console.log({err}))
+  }
   
   if (favorites.length > 0) {
     return (
@@ -25,7 +38,10 @@ export default function Favorites(){
         <div className='uk-container'>
           {favorites.map(item =>
             // <ItemCard key={item.id} item={item.comment} />
-            <div key={item.comment}>item id : {item.comment}</div>
+            <div key={item.comment}>
+              <div>item id : {item.comment}</div>
+              {/* <button type='button' onClick={deleteFavorite(item.id)}> Delete</button> */}
+            </div>
           )} 
         </div>
       </div>

@@ -27,7 +27,7 @@ export default function PageComment(props) {
         <ItemCard key={id} id={id}/>
       </div>
       <div className='uk-container uk-card uk-card-default uk-card-body uk-card-small comment-page'>
-        <CommentCard comment={commentsAll} />
+        <CommentCard comment={commentsAll} id={id}/>
       </div>
     </div>
     

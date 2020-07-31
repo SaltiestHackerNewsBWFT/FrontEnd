@@ -49,7 +49,7 @@ export default function SaltyCard(props) {
               <div className='uk-flex uk-flex-column uk-flex-middle' title='karma'>
                 <i className="fad fa-meteor fa-3x"></i>
                 <div className='uk-margin-top'>Karma</div>
-                 <strong class='uk-text-large'>{cardData.karma}</strong>
+                 <strong className='uk-text-large'>{cardData.karma}</strong>
               </div>
             </div>
           </div>
@@ -58,7 +58,7 @@ export default function SaltyCard(props) {
               <div className='uk-flex uk-flex-column uk-flex-middle' title='comments'>
                 <i className="fad fa-comments-alt fa-3x"></i>
                 <div className='uk-margin-top'>Comments</div>
-                <strong class='uk-text-large'>{cardData.submitted.length}</strong>
+                <strong className='uk-text-large'>{cardData.submitted.length}</strong>
               </div>
             </div>
           </div>
