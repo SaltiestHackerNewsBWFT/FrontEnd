@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 //import { axiosHackerNews } from '../utils/axiosHackerNews';
 import axios from 'axios';
-import SaltyCard from './SaltyCard';
+import SaltyHacker from './SaltyHacker';
 
 export default function PageSaltiest() {
   const [saltiestAll, setSaltiestAll] = useState([]);
@@ -32,37 +32,35 @@ export default function PageSaltiest() {
   for (const [key, value] of Object.entries(saltiestAll)) {
     saltiestArray.push({author: key, score: value})
   }
-  //console.log('ARRAY' ,saltiestArray)
 
-  const temp = 24001813;
+  // const temp = 24001813;
 
-  useEffect(() => {
-    axios
-      .post('https://guarded-waters-99080.herokuapp.com/predict', `{ "comment_id" : ${temp} }` )
-      .then(response => {
-        //setSaltiestAll(response.data.Top_100_Saltiest.clean_vader_score);
-        console.log('SCORE',response);
-      })
-      .catch(error => {
-        console.log('axios error: ', error);
-      })
-  }, [])
-
+  // useEffect(() => {
+  //   axios
+  //     .post('https://guarded-waters-99080.herokuapp.com/predict', `{ "comment_id" : ${temp} }` )
+  //     .then(response => {
+  //       //setSaltiestAll(response.data.Top_100_Saltiest.clean_vader_score);
+  //       console.log('SCORE',response);
+  //     })
+  //     .catch(error => {
+  //       console.log('axios error: ', error);
+  //     })
+  // }, [])
+  let ranking = 0;
  console.log('salty',saltiestAll)
   return (
     <div className='uk-section uk-section-small'> 
-      <div className='uk-container'>
-        <div className='uk-grid-small uk-child-width-1-2@s uk-child-width-1-4@m' data-uk-grid='masonry: true'>
-          {/* {
-            saltiestAll.map(item => {
-              return (
-                <SaltyCard key='kome' id='kome' salty='-0.89'/> // change it to id={item.id} and salty={item.rank}
-              )
-            })
-          } */}
+      <div className='uk-container uk-container-small'>
+       
           
-          test
-        </div>
+        {
+          saltiestArray.map(item => {
+            ranking += 1;
+            return (
+              <SaltyHacker key={item.author} rank={ranking} id={item.author} salty={item.score} /> // change it to id={item.id} and salty={item.rank}
+            )
+          })
+        }
       </div>
     </div>
   )
