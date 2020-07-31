@@ -23,18 +23,23 @@ body {
 
 
 // Header 
-
-.logo {
-  min-width: 30px;
-  min-height: 30px;
-  max-height: 30px;
-  color: @global-inverse-color  !important;
-  background: @global-primary-background;
-  line-height: 30px;
-  text-align: center;
-  padding: 5px;
-  margin-right: 10px;
+header {
+  nav{
+    border-bottom: 2px solid @global-primary-background;
+  }
+  .logo {
+    min-width: 30px;
+    min-height: 30px;
+    max-height: 30px;
+    color: @global-inverse-color  !important;
+    background: @global-primary-background;
+    line-height: 30px;
+    text-align: center;
+    padding: 5px;
+    margin-right: 10px;
+  }
 }
+
 
 // Footer 
 
@@ -129,13 +134,15 @@ body {
     color: @global-inverse-color;
   }
 }
+
 .uk-input {
   background: @global-inverse-color;
 }
+
 .uk-button:disabled {
   background: @global-secondary-background  !important;
   border: none;
-  color: @global-inverse-color !important;
+  color: @global-inverse-color  !important;
 }
 
 .comment-page {
