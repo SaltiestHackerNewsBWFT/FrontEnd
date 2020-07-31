@@ -1,7 +1,8 @@
 /* eslint-disable no-redeclare */
 /* eslint-disable react/jsx-no-target-blank */
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import ReactHtmlParser from 'react-html-parser';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
@@ -71,9 +72,27 @@ const Avatar = ({ author }) => {
 export default function CommentCard(props) {
   
   const comment = props.comment;
-  
+  const [saltyScore, setSaltyScore] = useState();
+  useEffect(() => {
+    axios
+      .post('https://guarded-waters-99080.herokuapp.com/predict', `{ "comment_id" : ${props.id} }` )
+      .then(response => {
+        setSaltyScore(response.data.Score_for_comment_from_id);
+        // console.log('SCORE',response.data.Score_for_comment_from_id);
+        // console.log(saltyScore)
+      })
+      .catch(error => {
+        console.log('axios error: ', error);
+      })
+  }, [props.id])
+//   const[saltyLevel,setSaltyLevel] = useState()
+//   if (saltyScore < 0 && saltyScore !== undefined) { 
+//     //const saltyPercentage = Math.floor(saltyScore * -100);
+//     setSaltyLevel(Math.ceil((saltyScore * -100)/33));
+//     console.log(saltyLevel,'%')
+//   }
+// console.log(saltyLevel,'%')
   if (!comment.children || !comment.children.length) return null;
-  
   return (
     <ul className='uk-comment-list' data-uk-accordion='multiple: true'>
       {comment.children.map(comment => {
@@ -97,25 +116,25 @@ export default function CommentCard(props) {
                   <li><Avatar author={author}/><a className='author uk-link-reset' href={`https://news.ycombinator.com/user?id=${author}`} target='_blank' title='author'>{author || 'deleted'}</a></li>
                   <li><a className='uk-text-lowercase' href={`https://news.ycombinator.com/item?id=${story_id}#${id}`} target='_blank' title='posted'><i className='fad fa-clock uk-margin-small-right'></i>{formatDistanceToNow(created_at_i * 1000)} ago</a></li>
                   <li><Link to={`/comments/${props.id}`} className='uk-text-lowercase' title='discuss'><i className='fad fa-comments-alt uk-margin-small-right'></i>{children.length}</Link></li>
-                  {/* <li>
+                  <li>
                     <strong className='uk-text-primary uk-text-small'>
-                        {(salty === 3) && <i>Saltiest</i>}
-                        {(salty === 2) && <i>Saltier</i>}
-                        {(salty === 1) && <i>Salty</i>}
+                        {(saltyScore < 0 && saltyScore !== undefined) && (Math.ceil((saltyScore * -100)/33) === 3) && <i>Saltiest</i>}
+                        {(saltyScore < 0 && saltyScore !== undefined) && (Math.ceil((saltyScore * -100)/33) === 2) && <i>Saltier</i>}
+                        {(saltyScore < 0 && saltyScore !== undefined) &&(Math.ceil((saltyScore * -100)/33) === 1) && <i>Salty</i>}
                     </strong>
                     <div className='uk-float-right uk-text-primary'>
-                      {(salty === 3) && <img src='./iconSaltiest.svg' width='30px' height='30px' alt='saltiest'/>}
-                      {(salty === 2) && <img src='./iconSaltier.svg' width='30px' height='30px' alt='saltier'/>}
-                      {(salty === 1) && <img src='./iconSalty.svg' width='30px' height='30px' alt='salty'/>}
+                      {(saltyScore < 0 && saltyScore !== undefined) && (Math.ceil((saltyScore * -100)/33) === 3) && <img src='../iconSaltiest.svg' width='30px' height='30px' alt='saltiest'/>}
+                      {(saltyScore < 0 && saltyScore !== undefined) && (Math.ceil((saltyScore * -100)/33) === 2) && <img src='../iconSaltier.svg' width='30px' height='30px' alt='saltier'/>}
+                      {(saltyScore < 0 && saltyScore !== undefined) && (Math.ceil((saltyScore * -100)/33) === 1) && <img src='../iconSalty.svg' width='30px' height='30px' alt='salty'/>}
                     </div>
-                  </li> */}
+                  </li>
                 </ul>
               </header>
               {/* <button className='uk-button uk-button-default uk-float-right' type='button' data-uk-toggle={`'target: ${id}'`} >Toggle</button> */}
               <div id={id} className='uk-comment-body'>
                 { ReactHtmlParser(text) }
               </div>
-              <CommentCard comment={comment} />
+              <CommentCard comment={comment} id={id}/>
             </article>
             <hr className='uk-divider'></hr>
           </li>
