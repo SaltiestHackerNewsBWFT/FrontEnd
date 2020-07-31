@@ -104,7 +104,7 @@ export default function PageSignup() {
                 </div>
                 <div className='uk-form-label uk-text-danger'>{errors.passwordAgain}</div>
               </div>
-              <div className='form-group'>
+              <div className='form-group uk-margin-top'>
                 <input type='submit' value='Sign up' disabled={!submitButtonEnabled} className='uk-button uk-button-primary uk-width-1-1'/>
               </div>
               <div className='uk-margin uk-text-center'>
