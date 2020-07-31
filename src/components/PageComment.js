@@ -18,8 +18,8 @@ export default function PageComment(props) {
       .catch(error => {
         console.log('axios error: ', error);
       })
-  }, [])
-  console.log('commentsAll', commentsAll)
+  },[id])
+  //console.log('commentsAll', commentsAll)
   
   return (
     <div className='uk-section uk-section-small'>

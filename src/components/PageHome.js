@@ -15,10 +15,6 @@ export default function PageHome() {
       })
   }, [])
 
-  useEffect(() => {
-    console.log(hnAll)
-  }, [hnAll])
-
   return (
     <div className='uk-section uk-section-small'> 
       <div className='uk-container'>

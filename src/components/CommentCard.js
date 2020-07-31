@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable no-redeclare */
+/* eslint-disable react/jsx-no-target-blank */
+import React from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import ReactHtmlParser from 'react-html-parser';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
@@ -80,11 +81,11 @@ export default function CommentCard(props) {
           id,
           author,
           created_at_i,
-          created_at,
+          //created_at,
           text,
           story_id,
           children,
-          points
+          //points
         } = comment;
         
         return (

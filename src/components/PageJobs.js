@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React, { useState, useEffect } from 'react';
 import { axiosHackerNews } from '../utils/axiosHackerNews';
 import ItemCard from './ItemCard';
@@ -9,7 +10,7 @@ export default function PageJobs() {
     axiosHackerNews('jobstories.json')
       .then(response => {
         setJobsAll(response.data);
-        console.log(response);
+        //console.log(response);
       })
       .catch(error => {
         console.log('axios error: ', error);

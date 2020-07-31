@@ -1,5 +1,5 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 // import ReactHtmlParser from 'react-html-parser';
 // import formatDistanceToNow from 'date-fns/formatDistanceToNow';
@@ -20,8 +20,8 @@ const initialCardData = {
 
 export default function SaltyCard(props) {
   const [cardData, setCardData] = useState({ ...initialCardData, id: props.id });
-  const salty= Math.ceil((props.salty * -100)/33);
-  const salt = (props.salty * -100);
+  // const salty= Math.ceil((props.salty * -100)/33);
+  // const salt = (props.salty * -100);
   
   
   
@@ -32,11 +32,11 @@ export default function SaltyCard(props) {
         // console.log('user card',response)
       })
       .catch(error => {console.log(error)})
-  }, [])
+  }, [props.id])
 
   return (
     <div className='uk-margin uk-flex uk-flex-center'>
-      <div className='uk-card uk-card-default uk-width-large'>
+      <div className='uk-card uk-card-default uk-width-xlarge'>
         <div className='uk-card-body uk-card-small uk-flex uk-flex-center'>
           <div className='uk-inline uk-heading-medium uk-text-primary'>{props.rank}</div>
           <h3 className='uk-card-title uk-h2 uk-text-primary uk-margin-left'>
